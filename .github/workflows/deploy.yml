@@ -55,6 +55,16 @@ jobs:
         # ignorés par .gitignore, ils n'existent qu'après ce build.
         run: npm run build
 
+      - name: Verify the build actually produced assets
+        # `vite build` réussissant sans écrire le manifeste attendu est une
+        # défaillance silencieuse : mieux vaut arrêter ici que déployer un
+        # public/build vide ou périmé.
+        run: |
+          test -f public/build/manifest.json || {
+            echo "::error::public/build/manifest.json est absent — le build Vite n'a rien produit."
+            exit 1
+          }
+
       - name: Deploy over SSH
         env:
           SSH_HOST: ${{ secrets.HOSTINGER_SSH_HOST }}
