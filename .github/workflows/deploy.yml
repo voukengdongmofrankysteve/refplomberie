@@ -86,7 +86,10 @@ jobs:
 
           # .env et storage/ ne viennent jamais de CI : l'un porte les secrets
           # de production, l'autre les données d'exécution (logs, sessions,
-          # fichiers envoyés). bootstrap/cache est régénéré côté serveur.
+          # fichiers envoyés). bootstrap/cache est exclu ici et vidé
+          # explicitement plus bas — sinon un manifeste de paquets compilé
+          # avant un déploiement précédent (par ex. avec les dépendances de
+          # dev) survivrait et ferait planter artisan sur une classe absente.
           rsync -az --delete \
             -e "ssh $SSH_OPTS" \
             --exclude='.git' \
@@ -106,6 +109,7 @@ jobs:
           REMOTE_CMD="set -euo pipefail; cd '$DEPLOY_PATH'; \
             if [ ! -f .env ]; then echo '::error::.env absent sur le serveur — créez-le manuellement (SSH ou gestionnaire de fichiers) avant le premier déploiement.'; exit 1; fi; \
             mkdir -p storage/framework/cache/data storage/framework/sessions storage/framework/views storage/framework/testing storage/logs storage/app/public bootstrap/cache; \
+            rm -f bootstrap/cache/*.php; \
             php artisan storage:link || true; \
             php artisan migrate --force; \
             php artisan config:cache; \
