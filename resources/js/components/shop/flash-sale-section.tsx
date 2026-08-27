@@ -56,11 +56,7 @@ function TimeBox({ value, label }: { value: number; label: string }) {
  * rebours touche zéro, on redemande simplement ce prop au serveur plutôt que
  * de deviner la suite — c'est lui qui décide ce qui est réellement en cours.
  */
-export default function FlashSaleSection({
-    sale,
-}: {
-    sale: FlashSale | null;
-}) {
+export default function FlashSaleSection({ sale }: { sale: FlashSale | null }) {
     const { addItem } = useCart();
     const upcoming = sale?.status === 'upcoming';
     const target = upcoming ? sale?.startsAt : sale?.endsAt;
@@ -100,9 +96,7 @@ export default function FlashSaleSection({
                             >
                                 <path d="M11 3a1 1 0 10-2 0v1.055A6.002 6.002 0 004.055 9H3a1 1 0 100 2h1.055A6.002 6.002 0 009 15.945V17a1 1 0 102 0v-1.055A6.002 6.002 0 0015.945 11H17a1 1 0 100-2h-1.055A6.002 6.002 0 0011 4.055V3z" />
                             </svg>
-                            {upcoming
-                                ? 'Vente flash à venir'
-                                : 'Vente flash'}
+                            {upcoming ? 'Vente flash à venir' : 'Vente flash'}
                         </p>
                         <h2 className="font-display text-2xl font-bold text-white md:text-3xl">
                             {sale.title}
@@ -178,9 +172,7 @@ export default function FlashSaleSection({
                                         onClick={() =>
                                             addItem(toCartProduct(item))
                                         }
-                                        disabled={
-                                            upcoming || item.stock === 0
-                                        }
+                                        disabled={upcoming || item.stock === 0}
                                         title={
                                             upcoming
                                                 ? 'Disponible dès le début de la vente'

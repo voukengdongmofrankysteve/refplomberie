@@ -13,8 +13,7 @@ import { formatPrice, getDiscount, productUrl } from '@/lib/shop';
  * prix et lequel gagne sur le stock.
  */
 export default function ComparisonModal() {
-    const { items, isOpen, setIsOpen, toggleCompare, clear } =
-        useComparison();
+    const { items, isOpen, setIsOpen, toggleCompare, clear } = useComparison();
     const { addItem, setIsOpen: openCart } = useCart();
 
     if (!isOpen || items.length === 0) {
@@ -75,9 +74,7 @@ export default function ComparisonModal() {
             label: 'Disponibilité',
             render: (item) =>
                 item.stock === 0 ? (
-                    <span className="font-semibold text-red-500">
-                        Épuisé
-                    </span>
+                    <span className="font-semibold text-red-500">Épuisé</span>
                 ) : item.stock <= 8 ? (
                     <span className="font-semibold text-amber-600">
                         Plus que {item.stock} en stock

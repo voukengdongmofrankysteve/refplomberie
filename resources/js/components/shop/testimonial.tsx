@@ -51,8 +51,7 @@ export default function Testimonial({
                     <div className="mt-4 flex items-center justify-center gap-2">
                         <Stars count={Math.round(average)} />
                         <span className="text-sm font-medium text-[#4A4A6A]">
-                            {average.toFixed(1)}/5 · {testimonials.length}{' '}
-                            avis
+                            {average.toFixed(1)}/5 · {testimonials.length} avis
                         </span>
                     </div>
                 </div>

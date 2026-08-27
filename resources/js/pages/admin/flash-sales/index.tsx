@@ -89,12 +89,10 @@ export default function AdminFlashSales({
             <div className="flex h-full flex-1 flex-col gap-4 p-4">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                     <div>
-                        <h1 className="text-lg font-semibold">
-                            Ventes flash
-                        </h1>
+                        <h1 className="text-lg font-semibold">Ventes flash</h1>
                         <p className="text-sm text-muted-foreground">
-                            {sales.length} vente{sales.length !== 1 ? 's' : ''}
-                            . Une seule tourne à la fois sur la vitrine.
+                            {sales.length} vente{sales.length !== 1 ? 's' : ''}.
+                            Une seule tourne à la fois sur la vitrine.
                         </p>
                     </div>
                     <Button variant="secondary" onClick={startCreate}>
@@ -174,18 +172,14 @@ export default function AdminFlashSales({
                                             <Button
                                                 variant="ghost"
                                                 size="sm"
-                                                onClick={() =>
-                                                    startEdit(sale)
-                                                }
+                                                onClick={() => startEdit(sale)}
                                             >
                                                 Modifier
                                             </Button>
                                             <Button
                                                 variant="ghost"
                                                 size="icon"
-                                                onClick={() =>
-                                                    destroy(sale)
-                                                }
+                                                onClick={() => destroy(sale)}
                                                 aria-label={`Supprimer ${sale.title}`}
                                             >
                                                 <Trash2 className="size-4 text-destructive" />

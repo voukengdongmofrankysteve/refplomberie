@@ -52,7 +52,10 @@ export default function AdminOrders({ orders, statuses, filters }: Props) {
                         </p>
                     </div>
                     <PdfExportButton
-                        href={admin.orders.export({ query: { search, status } }).url}
+                        href={
+                            admin.orders.export({ query: { search, status } })
+                                .url
+                        }
                     />
                 </div>
 

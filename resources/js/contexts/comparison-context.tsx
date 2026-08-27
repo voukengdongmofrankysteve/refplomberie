@@ -78,9 +78,7 @@ export function useComparison(): ComparisonContextValue {
     const ctx = useContext(ComparisonContext);
 
     if (!ctx) {
-        throw new Error(
-            'useComparison must be used inside ComparisonProvider',
-        );
+        throw new Error('useComparison must be used inside ComparisonProvider');
     }
 
     return ctx;

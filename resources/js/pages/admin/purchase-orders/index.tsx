@@ -59,8 +59,7 @@ export default function AdminPurchaseOrders({ orders, suppliers }: Props) {
                             Bons de commande
                         </h1>
                         <p className="text-sm text-muted-foreground">
-                            {orders.length} bon{orders.length !== 1 ? 's' : ''}
-                            .{' '}
+                            {orders.length} bon{orders.length !== 1 ? 's' : ''}.{' '}
                             <Link
                                 href={admin.suppliers.index()}
                                 className="text-primary hover:underline"

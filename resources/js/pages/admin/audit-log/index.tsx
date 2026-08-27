@@ -33,7 +33,8 @@ const SELECT_CLASS =
     'h-9 rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-xs outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50';
 
 const ACTION_TONE: Record<AuditLogEntry['action'], string> = {
-    created: 'bg-green-100 text-green-800 dark:bg-green-950 dark:text-green-300',
+    created:
+        'bg-green-100 text-green-800 dark:bg-green-950 dark:text-green-300',
     updated: 'bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300',
     deleted: 'bg-red-100 text-red-800 dark:bg-red-950 dark:text-red-300',
 };
@@ -51,12 +52,7 @@ function displayValue(value: unknown): string {
     return String(value);
 }
 
-export default function AdminAuditLog({
-    logs,
-    filters,
-    types,
-    admins,
-}: Props) {
+export default function AdminAuditLog({ logs, filters, types, admins }: Props) {
     const [action, setAction] = useState(filters.action);
     const [type, setType] = useState(filters.type);
     const [user, setUser] = useState(filters.user);
@@ -80,9 +76,7 @@ export default function AdminAuditLog({
 
             <div className="flex h-full flex-1 flex-col gap-4 p-4">
                 <div>
-                    <h1 className="text-lg font-semibold">
-                        Journal d’audit
-                    </h1>
+                    <h1 className="text-lg font-semibold">Journal d’audit</h1>
                     <p className="text-sm text-muted-foreground">
                         {logs.total} action{logs.total !== 1 ? 's' : ''}{' '}
                         enregistrée{logs.total !== 1 ? 's' : ''}. Créations,
@@ -166,9 +160,7 @@ export default function AdminAuditLog({
                                                 <Badge
                                                     variant="secondary"
                                                     className={
-                                                        ACTION_TONE[
-                                                            log.action
-                                                        ]
+                                                        ACTION_TONE[log.action]
                                                     }
                                                 >
                                                     {log.actionLabel}
@@ -184,21 +176,18 @@ export default function AdminAuditLog({
                                                     {log.subject.url ? (
                                                         <a
                                                             href={
-                                                                log.subject
-                                                                    .url
+                                                                log.subject.url
                                                             }
                                                             className="font-semibold text-primary hover:underline"
                                                         >
                                                             {log.subject.label}
-                                                            {log.subject
-                                                                .name &&
+                                                            {log.subject.name &&
                                                                 ` « ${log.subject.name} »`}
                                                         </a>
                                                     ) : (
                                                         <span className="font-semibold">
                                                             {log.subject.label}
-                                                            {log.subject
-                                                                .name &&
+                                                            {log.subject.name &&
                                                                 ` « ${log.subject.name} »`}
                                                         </span>
                                                     )}
@@ -224,9 +213,7 @@ export default function AdminAuditLog({
                                                         {changeCount > 1
                                                             ? 's'
                                                             : ''}{' '}
-                                                        {isExpanded
-                                                            ? '▲'
-                                                            : '▼'}
+                                                        {isExpanded ? '▲' : '▼'}
                                                     </Button>
                                                 )}
                                             </div>
@@ -254,15 +241,9 @@ export default function AdminAuditLog({
                                                                 field,
                                                                 change,
                                                             ]) => (
-                                                                <tr
-                                                                    key={
-                                                                        field
-                                                                    }
-                                                                >
+                                                                <tr key={field}>
                                                                     <td className="py-1 pr-3 font-mono text-muted-foreground">
-                                                                        {
-                                                                            field
-                                                                        }
+                                                                        {field}
                                                                     </td>
                                                                     <td className="py-1 pr-3 text-destructive">
                                                                         {displayValue(

@@ -83,8 +83,8 @@ export default function AdminFaqs({ faqs }: Props) {
                         </h1>
                         <p className="text-sm text-muted-foreground">
                             {faqs.length} question
-                            {faqs.length !== 1 ? 's' : ''}. Seules les
-                            questions actives paraissent sur la vitrine.
+                            {faqs.length !== 1 ? 's' : ''}. Seules les questions
+                            actives paraissent sur la vitrine.
                         </p>
                     </div>
                     <Button variant="secondary" onClick={startCreate}>
@@ -166,9 +166,7 @@ export default function AdminFaqs({ faqs }: Props) {
 
                         <form onSubmit={handleSubmit} className="space-y-3">
                             <div>
-                                <Label htmlFor="faq-question">
-                                    Question *
-                                </Label>
+                                <Label htmlFor="faq-question">Question *</Label>
                                 <Input
                                     id="faq-question"
                                     value={data.question}
@@ -205,17 +203,12 @@ export default function AdminFaqs({ faqs }: Props) {
 
                             <div className="grid grid-cols-2 gap-3">
                                 <div>
-                                    <Label htmlFor="faq-category">
-                                        Thème
-                                    </Label>
+                                    <Label htmlFor="faq-category">Thème</Label>
                                     <Input
                                         id="faq-category"
                                         value={data.category}
                                         onChange={(e) =>
-                                            setData(
-                                                'category',
-                                                e.target.value,
-                                            )
+                                            setData('category', e.target.value)
                                         }
                                         placeholder="Livraison"
                                     />

@@ -127,8 +127,8 @@ export default function AdminPurchaseOrderShow({
                         <section className="overflow-hidden rounded-xl border border-sidebar-border/70 bg-card dark:border-sidebar-border">
                             {items.length === 0 ? (
                                 <p className="p-8 text-center text-sm text-muted-foreground">
-                                    Aucun article pour l’instant. Ajoutez-en
-                                    un depuis le formulaire.
+                                    Aucun article pour l’instant. Ajoutez-en un
+                                    depuis le formulaire.
                                 </p>
                             ) : (
                                 <ul className="divide-y divide-sidebar-border/70 dark:divide-sidebar-border">
@@ -143,9 +143,7 @@ export default function AdminPurchaseOrderShow({
                                                 </p>
                                                 <p className="text-xs text-muted-foreground">
                                                     {item.quantity} ×{' '}
-                                                    {formatPrice(
-                                                        item.unitCost,
-                                                    )}
+                                                    {formatPrice(item.unitCost)}
                                                 </p>
                                             </div>
 
@@ -205,16 +203,14 @@ export default function AdminPurchaseOrderShow({
                                             <option value="">
                                                 — Produit —
                                             </option>
-                                            {filteredCatalog.map(
-                                                (product) => (
-                                                    <option
-                                                        key={product.id}
-                                                        value={product.id}
-                                                    >
-                                                        {product.name}
-                                                    </option>
-                                                ),
-                                            )}
+                                            {filteredCatalog.map((product) => (
+                                                <option
+                                                    key={product.id}
+                                                    value={product.id}
+                                                >
+                                                    {product.name}
+                                                </option>
+                                            ))}
                                         </select>
                                         {addForm.errors.product_id && (
                                             <p className="mt-1 text-xs text-destructive">
@@ -270,14 +266,9 @@ export default function AdminPurchaseOrderShow({
                         <h2 className="mb-4 text-sm font-semibold">Statut</h2>
 
                         {order.isEditable ? (
-                            <form
-                                onSubmit={submitStatus}
-                                className="space-y-3"
-                            >
+                            <form onSubmit={submitStatus} className="space-y-3">
                                 <div>
-                                    <Label htmlFor="po-status">
-                                        Statut *
-                                    </Label>
+                                    <Label htmlFor="po-status">Statut *</Label>
                                     <select
                                         id="po-status"
                                         value={statusForm.data.status}

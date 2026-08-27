@@ -12,7 +12,11 @@ declare module '@inertiajs/core' {
     export interface InertiaConfig {
         sharedPageProps: {
             name: string;
-            auth: Auth & { isAdmin: boolean; isStaff: boolean; permissions: string[] };
+            auth: Auth & {
+                isAdmin: boolean;
+                isStaff: boolean;
+                permissions: string[];
+            };
             seoTitle: string;
             sidebarOpen: boolean;
             store: StoreInfo;

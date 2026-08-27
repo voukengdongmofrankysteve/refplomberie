@@ -36,11 +36,7 @@ type Props = {
     catalog: CatalogProduct[];
 };
 
-export default function AdminFlashSaleShow({
-    sale,
-    products,
-    catalog,
-}: Props) {
+export default function AdminFlashSaleShow({ sale, products, catalog }: Props) {
     const [filter, setFilter] = useState('');
     const [editingPrice, setEditingPrice] = useState<number | null>(null);
 
@@ -78,14 +74,9 @@ export default function AdminFlashSaleShow({
     };
 
     const remove = (product: SaleProduct) => {
-        if (
-            window.confirm(
-                `Retirer « ${product.name} » de la vente flash ?`,
-            )
-        ) {
+        if (window.confirm(`Retirer « ${product.name} » de la vente flash ?`)) {
             router.delete(
-                admin.flashSales.products.destroy([sale.id, product.slug])
-                    .url,
+                admin.flashSales.products.destroy([sale.id, product.slug]).url,
                 { preserveScroll: true },
             );
         }
@@ -105,9 +96,7 @@ export default function AdminFlashSaleShow({
                         Ventes flash
                     </Link>
                     <div className="flex flex-wrap items-center gap-2">
-                        <h1 className="text-lg font-semibold">
-                            {sale.title}
-                        </h1>
+                        <h1 className="text-lg font-semibold">{sale.title}</h1>
                         {sale.isRunning ? (
                             <Badge className="bg-green-100 text-green-800 dark:bg-green-950 dark:text-green-300">
                                 En cours
@@ -142,8 +131,7 @@ export default function AdminFlashSaleShow({
                                 {products.map((product) => {
                                     const discount = Math.round(
                                         (1 -
-                                            product.salePrice /
-                                                product.price) *
+                                            product.salePrice / product.price) *
                                             100,
                                     );
 
@@ -186,8 +174,7 @@ export default function AdminFlashSaleShow({
                                                         onChange={(e) =>
                                                             priceForm.setData(
                                                                 'sale_price',
-                                                                e.target
-                                                                    .value,
+                                                                e.target.value,
                                                             )
                                                         }
                                                         className="h-8 w-28"
@@ -206,9 +193,7 @@ export default function AdminFlashSaleShow({
                                             ) : (
                                                 <button
                                                     onClick={() =>
-                                                        startEditPrice(
-                                                            product,
-                                                        )
+                                                        startEditPrice(product)
                                                     }
                                                     className="shrink-0 text-right"
                                                     title="Modifier le prix de vente flash"
@@ -236,9 +221,7 @@ export default function AdminFlashSaleShow({
                                             <Button
                                                 variant="ghost"
                                                 size="icon"
-                                                onClick={() =>
-                                                    remove(product)
-                                                }
+                                                onClick={() => remove(product)}
                                                 aria-label={`Retirer ${product.name}`}
                                             >
                                                 <Trash2 className="size-4 text-destructive" />
@@ -264,9 +247,7 @@ export default function AdminFlashSaleShow({
                                 <Input
                                     id="sale-product-filter"
                                     value={filter}
-                                    onChange={(e) =>
-                                        setFilter(e.target.value)
-                                    }
+                                    onChange={(e) => setFilter(e.target.value)}
                                     placeholder="Nom du produit…"
                                 />
                             </div>
@@ -328,10 +309,7 @@ export default function AdminFlashSaleShow({
                                 )}
                             </div>
 
-                            <Button
-                                type="submit"
-                                disabled={addForm.processing}
-                            >
+                            <Button type="submit" disabled={addForm.processing}>
                                 {addForm.processing
                                     ? 'Ajout…'
                                     : 'Ajouter à la vente'}

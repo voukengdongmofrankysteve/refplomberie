@@ -88,9 +88,7 @@ export default function AdminSuppliers({
             <div className="flex h-full flex-1 flex-col gap-4 p-4">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                     <div>
-                        <h1 className="text-lg font-semibold">
-                            Fournisseurs
-                        </h1>
+                        <h1 className="text-lg font-semibold">Fournisseurs</h1>
                         <p className="text-sm text-muted-foreground">
                             {suppliers.length} fournisseur
                             {suppliers.length !== 1 ? 's' : ''}.{' '}
@@ -214,10 +212,7 @@ export default function AdminSuppliers({
                                     id="supplier-contact"
                                     value={data.contact_name}
                                     onChange={(e) =>
-                                        setData(
-                                            'contact_name',
-                                            e.target.value,
-                                        )
+                                        setData('contact_name', e.target.value)
                                     }
                                     placeholder="Nom de la personne à contacter"
                                 />

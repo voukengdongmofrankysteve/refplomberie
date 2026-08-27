@@ -92,14 +92,12 @@ export default function AdminTestimonials({
             <div className="flex h-full flex-1 flex-col gap-4 p-4">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                     <div>
-                        <h1 className="text-lg font-semibold">
-                            Témoignages
-                        </h1>
+                        <h1 className="text-lg font-semibold">Témoignages</h1>
                         <p className="text-sm text-muted-foreground">
                             {testimonials.length} témoignage
                             {testimonials.length !== 1 ? 's' : ''}. Sans
-                            témoignage actif, la section n’apparaît pas sur
-                            la vitrine.
+                            témoignage actif, la section n’apparaît pas sur la
+                            vitrine.
                         </p>
                     </div>
                     <Button variant="secondary" onClick={startCreate}>

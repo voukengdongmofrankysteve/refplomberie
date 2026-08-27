@@ -76,7 +76,7 @@ export default function FrequentlyBoughtTogether({
                             <img
                                 src={item.img}
                                 alt={item.name}
-                                className="size-14 shrink-0 rounded-lg object-cover sm:size-full sm:aspect-square"
+                                className="size-14 shrink-0 rounded-lg object-cover sm:aspect-square sm:size-full"
                             />
                             <span className="min-w-0">
                                 <span className="line-clamp-2 block text-sm font-medium text-[#1A1A2E]">

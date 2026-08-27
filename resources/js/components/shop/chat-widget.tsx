@@ -6,7 +6,6 @@ import { useStoreInfo } from '@/hooks/use-store-info';
 import { openWhatsAppConversation, prepareWhatsAppTarget } from '@/lib/shop';
 import { track } from '@/lib/track';
 import { home } from '@/routes';
-import * as account from '@/routes/account';
 import { store as storeMessage } from '@/routes/contact-messages';
 import type { Faq } from '@/types/shop';
 
@@ -109,6 +108,7 @@ export default function ChatWidget() {
                 'bot',
                 `Nos horaires : ${store.hours}\nAdresse : ${store.address}\nTéléphone : ${store.phone}`,
             );
+
             return;
         }
 
@@ -117,6 +117,7 @@ export default function ChatWidget() {
                 'bot',
                 'Retrouvez le suivi de vos commandes dans votre espace client, rubrique « Mes commandes ».',
             );
+
             return;
         }
 

@@ -193,17 +193,15 @@ export default function ProductDetail({
 
                                 {product.warrantyBadges.length > 0 && (
                                     <div className="mb-4 flex flex-wrap gap-2">
-                                        {product.warrantyBadges.map(
-                                            (badge) => (
-                                                <span
-                                                    key={badge.value}
-                                                    className="flex items-center gap-1.5 rounded-full bg-[#25D366]/10 px-3 py-1 text-xs font-semibold text-[#1DA851]"
-                                                >
-                                                    <ShieldCheck className="h-3.5 w-3.5" />
-                                                    {badge.label}
-                                                </span>
-                                            ),
-                                        )}
+                                        {product.warrantyBadges.map((badge) => (
+                                            <span
+                                                key={badge.value}
+                                                className="flex items-center gap-1.5 rounded-full bg-[#25D366]/10 px-3 py-1 text-xs font-semibold text-[#1DA851]"
+                                            >
+                                                <ShieldCheck className="h-3.5 w-3.5" />
+                                                {badge.label}
+                                            </span>
+                                        ))}
                                     </div>
                                 )}
 
@@ -484,13 +482,13 @@ export default function ProductDetail({
                                     <div className="rounded-xl border border-[#E9ECEF] bg-[#F8F9FA] p-5 text-center">
                                         <ShieldCheck className="mx-auto mb-2 h-8 w-8 text-[#4A4A6A]" />
                                         <p className="text-sm font-semibold text-[#1A1A2E]">
-                                            Réservé aux clients ayant acheté
-                                            ce produit
+                                            Réservé aux clients ayant acheté ce
+                                            produit
                                         </p>
                                         <p className="mt-1 text-xs text-[#4A4A6A]">
-                                            Les avis ne sont ouverts qu’après
-                                            un achat confirmé, pour garantir
-                                            leur fiabilité.
+                                            Les avis ne sont ouverts qu’après un
+                                            achat confirmé, pour garantir leur
+                                            fiabilité.
                                         </p>
                                     </div>
                                 ) : reviewGate === 'already_reviewed' ? (

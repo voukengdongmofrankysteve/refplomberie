@@ -70,9 +70,7 @@ export default function AdminAccounting({
             <div className="flex h-full flex-1 flex-col gap-4 overflow-x-auto p-4">
                 <header className="flex flex-wrap items-end justify-between gap-3">
                     <div>
-                        <h1 className="text-lg font-semibold">
-                            Comptabilité
-                        </h1>
+                        <h1 className="text-lg font-semibold">Comptabilité</h1>
                         <p className="text-sm text-muted-foreground">
                             Ventes et achats du {period.from} au {period.to}.
                         </p>
@@ -145,9 +143,7 @@ export default function AdminAccounting({
                         <table className="w-full text-sm">
                             <thead className="border-b border-sidebar-border/70 text-left text-xs text-muted-foreground dark:border-sidebar-border">
                                 <tr>
-                                    <th className="p-3 font-medium">
-                                        Période
-                                    </th>
+                                    <th className="p-3 font-medium">Période</th>
                                     <th className="p-3 text-right font-medium">
                                         Ventes
                                     </th>
@@ -159,9 +155,7 @@ export default function AdminAccounting({
                             <tbody className="divide-y divide-sidebar-border/50">
                                 {series.map((point) => (
                                     <tr key={point.label}>
-                                        <td className="p-3">
-                                            {point.label}
-                                        </td>
+                                        <td className="p-3">{point.label}</td>
                                         <td className="p-3 text-right">
                                             {formatPrice(point.revenue)}
                                         </td>
@@ -214,9 +208,7 @@ export default function AdminAccounting({
                                             <td className="p-3">
                                                 {row.reference}
                                             </td>
-                                            <td className="p-3">
-                                                {row.party}
-                                            </td>
+                                            <td className="p-3">{row.party}</td>
                                             <td className="p-3 text-right">
                                                 {row.debit > 0
                                                     ? formatPrice(row.debit)
