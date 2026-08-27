@@ -1,0 +1,505 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Cannot access offset 0 on array\|false\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: app/Console/Commands/GenerateBrandAssets.php
+
+		-
+			message: '#^Cannot access offset 2 on array\|false\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: app/Console/Commands/GenerateBrandAssets.php
+
+		-
+			message: '#^Parameter \#1 \$width of function imagecreatetruecolor expects int\<1, max\>, int given\.$#'
+			identifier: argument.type
+			count: 2
+			path: app/Console/Commands/GenerateBrandAssets.php
+
+		-
+			message: '#^Parameter \#2 \$height of function imagecreatetruecolor expects int\<1, max\>, int given\.$#'
+			identifier: argument.type
+			count: 2
+			path: app/Console/Commands/GenerateBrandAssets.php
+
+		-
+			message: '#^Parameter \#4 \$color of function imagefill expects int, int\<0, max\>\|false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Console/Commands/GenerateBrandAssets.php
+
+		-
+			message: '#^Parameter \#4 \$colour of method App\\Console\\Commands\\GenerateBrandAssets\:\:roundedRectangle\(\) expects int, int\<0, max\>\|false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Console/Commands/GenerateBrandAssets.php
+
+		-
+			message: '#^Parameter \#5 \$colour of method App\\Console\\Commands\\GenerateBrandAssets\:\:text\(\) expects int, int\<0, max\>\|false given\.$#'
+			identifier: argument.type
+			count: 5
+			path: app/Console/Commands/GenerateBrandAssets.php
+
+		-
+			message: '#^Parameter \#6 \$color of function imagefilledellipse expects int, int\<0, max\>\|false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Console/Commands/GenerateBrandAssets.php
+
+		-
+			message: '#^Parameter \#6 \$color of function imagefilledrectangle expects int, int\<0, max\>\|false given\.$#'
+			identifier: argument.type
+			count: 3
+			path: app/Console/Commands/GenerateBrandAssets.php
+
+		-
+			message: '#^Parameter \#1 \$stream of function fclose expects resource, resource\|false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/Admin/AccountingController.php
+
+		-
+			message: '#^Parameter \#1 \$stream of function fputcsv expects resource, resource\|false given\.$#'
+			identifier: argument.type
+			count: 2
+			path: app/Http/Controllers/Admin/AccountingController.php
+
+		-
+			message: '#^Parameter \#1 \$stream of function fwrite expects resource, resource\|false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/Admin/AccountingController.php
+
+		-
+			message: '#^Parameter \#1 \$stream of function fclose expects resource, resource\|false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/Admin/AnalyticsController.php
+
+		-
+			message: '#^Parameter \#1 \$stream of function fputcsv expects resource, resource\|false given\.$#'
+			identifier: argument.type
+			count: 2
+			path: app/Http/Controllers/Admin/AnalyticsController.php
+
+		-
+			message: '#^Parameter \#1 \$stream of function fwrite expects resource, resource\|false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/Admin/AnalyticsController.php
+
+		-
+			message: '#^Using nullsafe property access "\?\-\>name" on left side of \?\? is unnecessary\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 1
+			path: app/Http/Controllers/Admin/AuditLogController.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Product\:\:\$pivot\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Controllers/Admin/FlashSaleController.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Product\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Models\\Product\>\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Controllers/Admin/FlashSaleProductController.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Product\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Models\\Product\>\:\:\$name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Controllers/Admin/FlashSaleProductController.php
+
+		-
+			message: '#^Parameter \#1 \$product of method App\\Http\\Controllers\\Admin\\FlashSaleProductController\:\:assertDiscounted\(\) expects App\\Models\\Product, App\\Models\\Product\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Models\\Product\> given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/Admin/FlashSaleProductController.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Product\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Models\\Product\>\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Controllers/Admin/PurchaseOrderItemController.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Product\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Models\\Product\>\:\:\$name\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Http/Controllers/Admin/PurchaseOrderItemController.php
+
+		-
+			message: '#^Expression on left side of \?\? is not nullable\.$#'
+			identifier: nullCoalesce.expr
+			count: 1
+			path: app/Http/Controllers/Admin/QuoteController.php
+
+		-
+			message: '#^Using nullsafe method call on non\-nullable type Illuminate\\Support\\Carbon\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 1
+			path: app/Http/Controllers/Admin/QuoteController.php
+
+		-
+			message: '#^Property App\\Models\\Story\:\:\$media_path \(string\) does not accept string\|false\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: app/Http/Controllers/Admin/StoryController.php
+
+		-
+			message: '#^Method App\\Http\\Controllers\\AnalyticsEventController\:\:subject\(\) should return Illuminate\\Database\\Eloquent\\Model\|null but returns App\\Models\\Product\|App\\Models\\Story\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Models\\Product\>\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Models\\Story\>\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Http/Controllers/AnalyticsEventController.php
+
+		-
+			message: '#^Access to an undefined property \(object\|string\)\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Requests/Admin/ProductRequest.php
+
+		-
+			message: '#^Using nullsafe property access "\?\-\>name" on left side of \?\? is unnecessary\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 1
+			path: app/Http/Resources/ReviewResource.php
+
+		-
+			message: '#^Parameter \#1 \$message of static method Symfony\\Component\\Mime\\MessageConverter\:\:toEmail\(\) expects Symfony\\Component\\Mime\\Message, Symfony\\Component\\Mime\\RawMessage given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Mail/HostingerApiTransport.php
+
+		-
+			message: '#^Unsafe call to private method App\\Models\\Campaign\:\:auditChanges\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 1
+			path: app/Models/Campaign.php
+
+		-
+			message: '#^Unsafe call to private method App\\Models\\Campaign\:\:auditSnapshot\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 2
+			path: app/Models/Campaign.php
+
+		-
+			message: '#^Unsafe call to private method App\\Models\\ContactMessage\:\:auditChanges\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 1
+			path: app/Models/ContactMessage.php
+
+		-
+			message: '#^Unsafe call to private method App\\Models\\ContactMessage\:\:auditSnapshot\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 2
+			path: app/Models/ContactMessage.php
+
+		-
+			message: '#^Unsafe call to private method App\\Models\\Faq\:\:auditChanges\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 1
+			path: app/Models/Faq.php
+
+		-
+			message: '#^Unsafe call to private method App\\Models\\Faq\:\:auditSnapshot\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 2
+			path: app/Models/Faq.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Product\:\:\$pivot\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Models/FlashSale.php
+
+		-
+			message: '#^Unsafe call to private method App\\Models\\FlashSale\:\:auditChanges\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 1
+			path: app/Models/FlashSale.php
+
+		-
+			message: '#^Unsafe call to private method App\\Models\\FlashSale\:\:auditSnapshot\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 2
+			path: app/Models/FlashSale.php
+
+		-
+			message: '#^Unsafe call to private method App\\Models\\Order\:\:auditChanges\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 1
+			path: app/Models/Order.php
+
+		-
+			message: '#^Unsafe call to private method App\\Models\\Order\:\:auditSnapshot\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 2
+			path: app/Models/Order.php
+
+		-
+			message: '#^Unsafe call to private method App\\Models\\Product\:\:auditChanges\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 1
+			path: app/Models/Product.php
+
+		-
+			message: '#^Unsafe call to private method App\\Models\\Product\:\:auditSnapshot\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 2
+			path: app/Models/Product.php
+
+		-
+			message: '#^Unsafe call to private method App\\Models\\PromoCode\:\:auditChanges\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 1
+			path: app/Models/PromoCode.php
+
+		-
+			message: '#^Unsafe call to private method App\\Models\\PromoCode\:\:auditSnapshot\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 2
+			path: app/Models/PromoCode.php
+
+		-
+			message: '#^Unsafe call to private method App\\Models\\PurchaseOrder\:\:auditChanges\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 1
+			path: app/Models/PurchaseOrder.php
+
+		-
+			message: '#^Unsafe call to private method App\\Models\\PurchaseOrder\:\:auditSnapshot\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 2
+			path: app/Models/PurchaseOrder.php
+
+		-
+			message: '#^Unsafe call to private method App\\Models\\Quote\:\:auditChanges\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 1
+			path: app/Models/Quote.php
+
+		-
+			message: '#^Unsafe call to private method App\\Models\\Quote\:\:auditSnapshot\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 2
+			path: app/Models/Quote.php
+
+		-
+			message: '#^Unsafe call to private method App\\Models\\StoreSetting\:\:auditChanges\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 1
+			path: app/Models/StoreSetting.php
+
+		-
+			message: '#^Unsafe call to private method App\\Models\\StoreSetting\:\:auditSnapshot\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 2
+			path: app/Models/StoreSetting.php
+
+		-
+			message: '#^Unsafe call to private method App\\Models\\Story\:\:auditChanges\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 1
+			path: app/Models/Story.php
+
+		-
+			message: '#^Unsafe call to private method App\\Models\\Story\:\:auditSnapshot\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 2
+			path: app/Models/Story.php
+
+		-
+			message: '#^Unsafe call to private method App\\Models\\Supplier\:\:auditChanges\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 1
+			path: app/Models/Supplier.php
+
+		-
+			message: '#^Unsafe call to private method App\\Models\\Supplier\:\:auditSnapshot\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 2
+			path: app/Models/Supplier.php
+
+		-
+			message: '#^Unsafe call to private method App\\Models\\Technician\:\:auditChanges\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 1
+			path: app/Models/Technician.php
+
+		-
+			message: '#^Unsafe call to private method App\\Models\\Technician\:\:auditSnapshot\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 2
+			path: app/Models/Technician.php
+
+		-
+			message: '#^Unsafe call to private method App\\Models\\TechnicianRequest\:\:auditChanges\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 1
+			path: app/Models/TechnicianRequest.php
+
+		-
+			message: '#^Unsafe call to private method App\\Models\\TechnicianRequest\:\:auditSnapshot\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 2
+			path: app/Models/TechnicianRequest.php
+
+		-
+			message: '#^Unsafe call to private method App\\Models\\Testimonial\:\:auditChanges\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 1
+			path: app/Models/Testimonial.php
+
+		-
+			message: '#^Unsafe call to private method App\\Models\\Testimonial\:\:auditSnapshot\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 2
+			path: app/Models/Testimonial.php
+
+		-
+			message: '#^Method App\\Models\\User\:\:avatar\(\) should return Illuminate\\Database\\Eloquent\\Casts\\Attribute\<string\|null, never\> but returns Illuminate\\Database\\Eloquent\\Casts\\Attribute\<string\|null, never\>\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Models/User.php
+
+		-
+			message: '#^Unsafe call to private method App\\Models\\User\:\:auditChanges\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 1
+			path: app/Models/User.php
+
+		-
+			message: '#^Unsafe call to private method App\\Models\\User\:\:auditSnapshot\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 2
+			path: app/Models/User.php
+
+		-
+			message: '#^Call to an undefined method object\:\:getKey\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Notifications/Channels/FcmChannel.php
+
+		-
+			message: '#^Cannot cast array\|string\|null to string\.$#'
+			identifier: cast.string
+			count: 1
+			path: app/Services/Analytics/AnalyticsRecorder.php
+
+		-
+			message: '#^Instanceof between Illuminate\\Http\\Request and Illuminate\\Http\\Request will always evaluate to true\.$#'
+			identifier: instanceof.alwaysTrue
+			count: 1
+			path: app/Services/Analytics/AnalyticsRecorder.php
+
+		-
+			message: '#^Using nullsafe property access "\?\-\>id" on left side of \?\? is unnecessary\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 1
+			path: app/Services/Analytics/AnalyticsRecorder.php
+
+		-
+			message: '#^Method App\\Services\\Analytics\\AnalyticsReport\:\:referrers\(\) should return array\<int, array\<string, int\|string\|null\>\> but returns array\<int, array\<string, float\|int\|string\|null\>\>\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Services/Analytics/AnalyticsReport.php
+
+		-
+			message: '#^Method App\\Services\\Analytics\\AnalyticsReport\:\:topProducts\(\) should return array\<int, array\<string, int\|string\|null\>\> but returns array\<int, array\<string, float\|int\|string\|null\>\>\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Services/Analytics/AnalyticsReport.php
+
+		-
+			message: '#^Parameter \#1 \$expression of method Illuminate\\Database\\Eloquent\\Builder\<App\\Models\\Analytics\\Event\>\:\:selectRaw\(\) expects literal\-string, non\-falsy\-string given\.$#'
+			identifier: argument.type
+			count: 3
+			path: app/Services/Analytics/AnalyticsReport.php
+
+		-
+			message: '#^Parameter \#1 \$expression of method Illuminate\\Database\\Eloquent\\Builder\<App\\Models\\Analytics\\Session\>\:\:selectRaw\(\) expects literal\-string, non\-falsy\-string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Services/Analytics/AnalyticsReport.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Product\:\:\$pivot\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Services/CartPricer.php
+
+		-
+			message: '#^Parameter \#1 \$stream of function fclose expects resource, resource\|false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Services/CatalogCsvService.php
+
+		-
+			message: '#^Parameter \#1 \$stream of function fputcsv expects resource, resource\|false given\.$#'
+			identifier: argument.type
+			count: 2
+			path: app/Services/CatalogCsvService.php
+
+		-
+			message: '#^Parameter \#1 \$stream of function fwrite expects resource, resource\|false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Services/CatalogCsvService.php
+
+		-
+			message: '#^Parameter \#1 \$stream of function rewind expects resource, resource\|false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Services/CatalogCsvService.php
+
+		-
+			message: '#^Parameter \#1 \$stream of function stream_get_contents expects resource, resource\|false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Services/CatalogCsvService.php
+
+		-
+			message: '#^Parameter \#4 \$color of function imagefill expects int, int\<0, max\>\|false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Services/ProductImageService.php
+
+		-
+			message: '#^Parameter \#5 \$colour of method App\\Services\\ProductImageService\:\:text\(\) expects int, int\<0, max\>\|false given\.$#'
+			identifier: argument.type
+			count: 6
+			path: app/Services/ProductImageService.php
+
+		-
+			message: '#^Parameter \#6 \$color of function imagefilledrectangle expects int, int\<0, max\>\|false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Services/ProductImageService.php
+
+		-
+			message: '#^Parameter \#2 \$string of function explode expects string, bool\|string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: config/sanctum.php
+
+		-
+			message: '#^Property App\\Models\\User\:\:\$email_verified_at \(Illuminate\\Support\\Carbon\|null\) does not accept Carbon\\CarbonImmutable\|Illuminate\\Support\\Carbon\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: database/seeders/AdminUserSeeder.php
+
+		-
+			message: '#^Using nullsafe method call on non\-nullable type Illuminate\\Console\\Command\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 1
+			path: database/seeders/AdminUserSeeder.php
+
+		-
+			message: '#^Using nullsafe method call on non\-nullable type Illuminate\\Console\\Command\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 4
+			path: database/seeders/ShopCatalogSeeder.php
