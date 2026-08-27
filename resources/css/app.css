@@ -1,0 +1,281 @@
+@import 'tailwindcss';
+
+@import 'tw-animate-css';
+
+@source '../views';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+    --font-sans:
+        'Instrument Sans', ui-sans-serif, system-ui, sans-serif,
+        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+        'Noto Color Emoji';
+
+    --radius-lg: var(--radius);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-sm: calc(var(--radius) - 4px);
+
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
+
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+    /* Palette Réf. Plomberie — identique à la vitrine publique.
+       Le back-office et l'espace client partagent ces jetons : fond blanc,
+       encre bleu nuit, vert de marque en couleur primaire. */
+    --background: #ffffff;
+    --foreground: #1a1a2e;
+    --card: #ffffff;
+    --card-foreground: #1a1a2e;
+    --popover: #ffffff;
+    --popover-foreground: #1a1a2e;
+    --primary: #25d366;
+    --primary-foreground: #1a1a2e;
+    --secondary: #f1f3f5;
+    --secondary-foreground: #1a1a2e;
+    --muted: #f8f9fa;
+    --muted-foreground: #4a4a6a;
+    --accent: #e8f5e9;
+    --accent-foreground: #1a1a2e;
+    --destructive: #dc2626;
+    --destructive-foreground: #ffffff;
+    --border: #e9ecef;
+    --input: #e9ecef;
+    --ring: #25d366;
+    --chart-1: #25d366;
+    --chart-2: #1da851;
+    --chart-3: #1a1a2e;
+    --chart-4: #4a4a6a;
+    --chart-5: #adb5bd;
+    --sidebar: #f8f9fa;
+    --sidebar-foreground: #1a1a2e;
+    --sidebar-primary: #25d366;
+    --sidebar-primary-foreground: #1a1a2e;
+    --sidebar-accent: #e8f5e9;
+    --sidebar-accent-foreground: #1a1a2e;
+    --sidebar-border: #e9ecef;
+    --sidebar-ring: #25d366;
+}
+
+/* La boutique est en thème clair uniquement : `.dark` reprend volontairement
+   les mêmes valeurs pour qu'aucun résidu de préférence système n'assombrisse
+   le back-office. */
+.dark {
+    --background: #ffffff;
+    --foreground: #1a1a2e;
+    --card: #ffffff;
+    --card-foreground: #1a1a2e;
+    --popover: #ffffff;
+    --popover-foreground: #1a1a2e;
+    --primary: #25d366;
+    --primary-foreground: #1a1a2e;
+    --secondary: #f1f3f5;
+    --secondary-foreground: #1a1a2e;
+    --muted: #f8f9fa;
+    --muted-foreground: #4a4a6a;
+    --accent: #e8f5e9;
+    --accent-foreground: #1a1a2e;
+    --destructive: #dc2626;
+    --destructive-foreground: #ffffff;
+    --border: #e9ecef;
+    --input: #e9ecef;
+    --ring: #25d366;
+    --chart-1: #25d366;
+    --chart-2: #1da851;
+    --chart-3: #1a1a2e;
+    --chart-4: #4a4a6a;
+    --chart-5: #adb5bd;
+    --sidebar: #f8f9fa;
+    --sidebar-foreground: #1a1a2e;
+    --sidebar-primary: #25d366;
+    --sidebar-primary-foreground: #1a1a2e;
+    --sidebar-accent: #e8f5e9;
+    --sidebar-accent-foreground: #1a1a2e;
+    --sidebar-border: #e9ecef;
+    --sidebar-ring: #25d366;
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   Vitrine Réf. Plomberie
+   Jetons de thème, polices et animations propres aux pages `shop/*`.
+   ══════════════════════════════════════════════════════════════════ */
+
+@theme {
+    --font-display:
+        'Outfit', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+
+    --color-plomb-green: #25d366;
+    --color-plomb-green-light: #20bb5a;
+    --color-plomb-green-dark: #1da851;
+    --color-plomb-green-pale: #e8f5e9;
+
+    --color-plomb-ink: #1a1a2e;
+    --color-plomb-ink-soft: #4a4a6a;
+    --color-plomb-line: #e9ecef;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.font-display {
+    font-family: var(--font-display);
+}
+
+::selection {
+    background-color: var(--color-plomb-green);
+    color: var(--color-plomb-ink);
+}
+
+/* Pastille du panier */
+@keyframes badgePulse {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+.badge-pulse {
+    animation: badgePulse 0.4s ease;
+}
+
+/* Bandeau défilant */
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+.animate-marquee {
+    animation: marquee 30s linear infinite;
+}
+
+/* Carte produit */
+.product-card {
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgb(0 0 0 / 0.1);
+}
+
+/* Découpe du hero */
+.clip-hero {
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+}
+
+/* Panneaux latéraux (panier, favoris) */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+.cart-panel {
+    animation: slideIn 0.3s ease;
+}
+
+/* Notification d'ajout au panier */
+@keyframes toastIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+.toast {
+    animation: toastIn 0.3s ease;
+}
+
+/* Apparition des modales */
+@keyframes modalIn {
+    from {
+        transform: scale(0.94) translateY(12px);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+.animate-modal {
+    animation: modalIn 0.25s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .animate-marquee,
+    .badge-pulse,
+    .cart-panel,
+    .toast,
+    .animate-modal {
+        animation: none;
+    }
+    html {
+        scroll-behavior: auto;
+    }
+}

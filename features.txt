@@ -1,0 +1,46 @@
+Here's a broad list, organized by area — grouped to avoid repeating what's already built (analytics, PDF/CSV exports, promo codes, low-stock alerts, email/push notifications, Google login, stories, favorites, reviews, quotes, technician requests, campaigns).
+
+**Ventes & conversion**
+- Panier abandonné : relance email/push si ajout au panier sans commande sous X heures
+- Fidélité / points de récompense liés à un historique d'achats
+- Recommandations "produits souvent achetés ensemble" sur la fiche produit   ok
+- Vente flash / compte à rebours sur une sélection de produits     ok
+- Paniers pré-remplis ("kit plomberie salle de bain", "kit tableau électrique")
+- Comparateur de produits (deux ou trois fiches côte à côte)  ok
+
+**Paiement**
+- Paiement mobile money (Orange Money / MTN MoMo) en plus de la commande WhatsApp
+- Acompte / paiement en plusieurs fois sur les grosses commandes
+
+**Logistique & stock**
+- Suivi de livraison avec statuts géolocalisés (parti de l'entrepôt, en route, livré)
+- Réservation de stock à la commande (éviter deux clients qui commandent le dernier article)
+- Multi-entrepôts / disponibilité par point de vente
+- Commande fournisseur automatique quand le stock passe sous le seuil
+
+**Service client**
+- Chat en direct ou chatbot basique sur le site
+- Système de retours / SAV avec suivi de ticket
+- FAQ dynamique avec recherche  ok
+
+**Contenu & référencement**
+- Blog / guides techniques ("comment choisir son disjoncteur") pour le SEO  
+- Vidéos tutoriels liées aux produits   ok
+- Multilingue (français / anglais, vu le Cameroun bilingue)  
+
+**Back-office admin**   ok
+- Rôles et permissions multiples (vendeur, gestionnaire stock, admin complet — pas juste admin/client)
+- Journal d'audit (qui a modifié quoi, quand)
+- Tableau de bord comptable / export vers un logiciel de compta
+- Gestion des fournisseurs et bons de commande
+
+**Mobile app**
+- Scan de code-barres pour retrouver un produit
+- Mode hors-ligne (consultation du catalogue sans réseau)
+- Widget Android "suivi de ma commande"
+
+**Confiance** ok
+- Badges de garantie / authenticité sur les produits
+- Avis vérifiés uniquement (déjà partiel avec les avis, mais lier explicitement à un achat confirmé)
+
+Dites-moi lesquels vous intéressent et je peux les prioriser ou creuser un plan d'implémentation.
