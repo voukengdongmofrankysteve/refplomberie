@@ -60,7 +60,7 @@ echo "▶ Remise en cache pour la production"
 "$php_bin" artisan route:cache
 "$php_bin" artisan view:cache
 
-echo "✅ Déploiement terminé."
+echo "✅ Déploiement terminé.d"
 echo
 echo "Contrôles rapides :"
 echo "  $php_bin artisan about --only=environment"
