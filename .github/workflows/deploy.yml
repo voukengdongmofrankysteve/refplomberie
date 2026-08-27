@@ -110,7 +110,7 @@ jobs:
             if [ ! -f .env ]; then echo '::error::.env absent sur le serveur — créez-le manuellement (SSH ou gestionnaire de fichiers) avant le premier déploiement.'; exit 1; fi; \
             mkdir -p storage/framework/cache/data storage/framework/sessions storage/framework/views storage/framework/testing storage/logs storage/app/public bootstrap/cache; \
             rm -f bootstrap/cache/*.php; \
-            php artisan storage:link || true; \
+            ln -sfn \"\$(pwd)/storage/app/public\" \"\$(pwd)/public/storage\"; \
             php artisan migrate --force; \
             php artisan config:cache; \
             php artisan route:cache; \
