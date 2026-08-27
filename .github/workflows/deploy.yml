@@ -1,0 +1,106 @@
+name: deploy
+
+on:
+  # Ne déploie qu'une fois la suite « tests » passée sur main — jamais de
+  # code cassé en production, même par accident.
+  workflow_run:
+    workflows: ['tests']
+    types: [completed]
+    branches: [main]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # Sur un déclenchement `workflow_run`, le SHA par défaut serait
+          # celui du run courant — pas forcément le commit qui a fait
+          # passer les tests. On fixe explicitement le bon commit.
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+          persist-credentials: false
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@f3e473d116dcccaddc5834248c87452386958240 # v2
+        with:
+          php-version: '8.3'
+          tools: composer:v2
+          coverage: none
+
+      - name: Setup Node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '22'
+
+      - name: Install PHP dependencies (production only)
+        run: composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Build frontend assets
+        # Génère aussi resources/js/actions et resources/js/routes (Wayfinder) :
+        # ignorés par .gitignore, ils n'existent qu'après ce build.
+        run: npm run build
+
+      - name: Deploy over SSH
+        env:
+          SSH_HOST: ${{ secrets.HOSTINGER_SSH_HOST }}
+          SSH_PORT: ${{ secrets.HOSTINGER_SSH_PORT }}
+          SSH_USER: ${{ secrets.HOSTINGER_SSH_USER }}
+          DEPLOY_PATH: ${{ secrets.HOSTINGER_DEPLOY_PATH }}
+        run: |
+          set -euo pipefail
+
+          mkdir -p ~/.ssh
+          printf '%s\n' "${{ secrets.HOSTINGER_SSH_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -p "$SSH_PORT" -H "$SSH_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+
+          SSH_OPTS="-p $SSH_PORT -i ~/.ssh/deploy_key -o UserKnownHostsFile=~/.ssh/known_hosts"
+
+          # Crée le dossier cible s'il n'existe pas encore (premier déploiement).
+          ssh $SSH_OPTS "$SSH_USER@$SSH_HOST" "mkdir -p '$DEPLOY_PATH'"
+
+          # .env et storage/ ne viennent jamais de CI : l'un porte les secrets
+          # de production, l'autre les données d'exécution (logs, sessions,
+          # fichiers envoyés). bootstrap/cache est régénéré côté serveur.
+          rsync -az --delete \
+            -e "ssh $SSH_OPTS" \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='.claude' \
+            --exclude='node_modules' \
+            --exclude='tests' \
+            --exclude='.env' \
+            --exclude='storage' \
+            --exclude='bootstrap/cache' \
+            ./ "$SSH_USER@$SSH_HOST:$DEPLOY_PATH/"
+
+          # Une seule ligne plutôt qu'un heredoc : SSH ne transmet pas les
+          # variables d'environnement locales, et un terminateur de heredoc
+          # doit démarrer en colonne 0 — incompatible avec l'indentation
+          # obligatoire d'un bloc littéral YAML.
+          REMOTE_CMD="set -euo pipefail; cd '$DEPLOY_PATH'; \
+            if [ ! -f .env ]; then echo '::error::.env absent sur le serveur — créez-le manuellement (SSH ou gestionnaire de fichiers) avant le premier déploiement.'; exit 1; fi; \
+            mkdir -p storage/framework/cache/data storage/framework/sessions storage/framework/views storage/framework/testing storage/logs storage/app/public bootstrap/cache; \
+            php artisan storage:link || true; \
+            php artisan migrate --force; \
+            php artisan config:cache; \
+            php artisan route:cache; \
+            php artisan view:cache; \
+            php artisan event:cache"
+
+          ssh $SSH_OPTS "$SSH_USER@$SSH_HOST" "$REMOTE_CMD"
