@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Catalogue réel de la boutique, monté à partir des photos prises en magasin
+ * Catalogue de la boutique, reconstruit à partir des photos prises en magasin
  * (database/seeders/data/photos). Consommé par Database\Seeders\ShopCatalogSeeder.
  *
  * `photos` : noms de fichiers présents dans data/photos, la première image
@@ -9,15 +9,23 @@
  * ProductImageService : redimensionnement, conversion WebP et filigrane
  * « Réf.Plomberie ».
  *
- * ⚠ PRIX : sauf le filtre industriel 20" (40 000 FCFA, tarif affiché sur la
- * photo du magasin), les montants sont des ESTIMATIONS calées sur les prix
- * relevés au Cameroun pour des articles comparables. Ils sont à confirmer
- * depuis le back-office avant mise en ligne.
+ * Chaque entrée a été rapprochée une à une de sa photo d'origine : marque,
+ * référence et calibre lus directement sur l'emballage, jamais devinés.
+ *
+ * ⚠ PRIX : seul le filtre industriel 20" (40 000 FCFA) porte un tarif affiché
+ * sur la photo du magasin. Tous les autres montants sont des ESTIMATIONS
+ * calées sur les prix relevés au Cameroun (Douala / Yaoundé) pour des
+ * articles comparables. À confirmer depuis le back-office avant mise en ligne.
  */
 
 return [
 
-    // ── Robinetterie ─────────────────────────────────────────────────────
+    /*
+    |--------------------------------------------------------------------------
+    | Robinetterie
+    |--------------------------------------------------------------------------
+    */
+
     [
         'slug' => 'robinet-lavabo-col-de-cygne-kmei',
         'name' => 'Robinet lavabo col-de-cygne KMEI',
@@ -54,8 +62,25 @@ return [
         'tiers' => [[1, 9, 2500], [10, 49, 2100], [50, null, 1800]],
         'photos' => ['robinet-equerre-kmei-1.jpg'],
     ],
+    [
+        'slug' => 'robinet-evier-mural-power-royal',
+        'name' => 'Robinet évier mural Power Royal col-de-cygne',
+        'category' => 'robinetterie',
+        'description' => "Robinet d'évier mural Power Royal, bec col-de-cygne orientable et corps laiton chromé. Tête céramique quart de tour, mousseur anti-éclaboussures et filetage mâle 1/2\" pour raccordement direct sur la sortie murale. Finition brillante annoncée « German Technology », pensée pour la cuisine comme pour la buanderie.",
+        'price' => 12000,
+        'old_price' => 15000,
+        'badge' => null,
+        'stock' => 25,
+        'tiers' => [[1, 4, 12000], [5, 19, 10800], [20, null, 9700]],
+        'photos' => ['robinet-evier-mural-power-royal-1.jpg'],
+    ],
 
-    // ── Lavabos & Éviers ─────────────────────────────────────────────────
+    /*
+    |--------------------------------------------------------------------------
+    | Lavabos & Éviers
+    |--------------------------------------------------------------------------
+    */
+
     [
         'slug' => 'evier-inox-double-bac-summit-home',
         'name' => 'Évier inox double bac Summit Home',
@@ -76,12 +101,29 @@ return [
         'price' => 22000,
         'old_price' => null,
         'badge' => null,
-        'stock' => 15,
+        'stock' => 14,
         'tiers' => [[1, 4, 22000], [5, 19, 19500], [20, null, 17500]],
         'photos' => ['evier-inox-simple-bac-galaxy-home-1.jpg'],
     ],
+    [
+        'slug' => 'lavabo-colonne-golf-exclusive',
+        'name' => 'Lavabo sur colonne Golf Exclusive',
+        'category' => 'lavabos',
+        'description' => "Lavabo en céramique sanitaire Golf Exclusive avec sa colonne assortie, décor moulé en relief. Percé d'un trou central pour robinetterie et d'un trop-plein. La colonne masque le siphon et l'alimentation, ce qui évite un meuble sous vasque. Vendu lavabo + colonne ; robinetterie et vidage à prévoir.",
+        'price' => 42000,
+        'old_price' => 48000,
+        'badge' => null,
+        'stock' => 8,
+        'tiers' => [[1, 2, 42000], [3, 9, 39000], [10, null, 36000]],
+        'photos' => ['lavabo-colonne-golf-exclusive-1.jpg'],
+    ],
 
-    // ── Sanitaire ────────────────────────────────────────────────────────
+    /*
+    |--------------------------------------------------------------------------
+    | Sanitaire
+    |--------------------------------------------------------------------------
+    */
+
     [
         'slug' => 'pack-wc-lavabo-colonne',
         'name' => 'Pack WC complet + lavabo sur colonne',
@@ -114,7 +156,7 @@ return [
         'price' => 4500,
         'old_price' => null,
         'badge' => null,
-        'stock' => 45,
+        'stock' => 40,
         'tiers' => [[1, 9, 4500], [10, 49, 3900], [50, null, 3400]],
         'photos' => ['derouleur-papier-hygienique-1.jpg'],
     ],
@@ -126,12 +168,29 @@ return [
         'price' => 3500,
         'old_price' => null,
         'badge' => null,
-        'stock' => 55,
+        'stock' => 50,
         'tiers' => [[1, 9, 3500], [10, 49, 3000], [50, null, 2600]],
         'photos' => ['porte-savon-brosse-dents-kmei-1.jpg'],
     ],
+    [
+        'slug' => 'douchette-wc-kmei-verdun-912',
+        'name' => 'Douchette WC KMEI Verdun 912 avec flexible',
+        'category' => 'sanitaire',
+        'description' => "Ensemble douchette hygiénique KMEI Verdun 912 : poignée métal chromé à gâchette, flexible tressé noir de 1,20 m et support mural. Robinet d'arrêt d'équerre à prévoir séparément. Se raccorde sur l'alimentation du WC en 1/2\". Jet concentré, débit maîtrisé à la pression du doigt.",
+        'price' => 7500,
+        'old_price' => 9500,
+        'badge' => null,
+        'stock' => 30,
+        'tiers' => [[1, 4, 7500], [5, 19, 6800], [20, null, 6100]],
+        'photos' => ['douchette-wc-kmei-verdun-912-1.jpg'],
+    ],
 
-    // ── WC & Urinoirs ────────────────────────────────────────────────────
+    /*
+    |--------------------------------------------------------------------------
+    | WC & Urinoirs
+    |--------------------------------------------------------------------------
+    */
+
     [
         'slug' => 'mecanisme-chasse-wc-maat',
         'name' => 'Mécanisme de chasse WC MAAT alimentation latérale',
@@ -140,7 +199,7 @@ return [
         'price' => 12000,
         'old_price' => null,
         'badge' => null,
-        'stock' => 30,
+        'stock' => 35,
         'tiers' => [[1, 9, 12000], [10, 49, 10500], [50, null, 9200]],
         'photos' => ['mecanisme-chasse-wc-maat-1.jpg'],
     ],
@@ -152,12 +211,29 @@ return [
         'price' => 6500,
         'old_price' => null,
         'badge' => null,
-        'stock' => 35,
+        'stock' => 45,
         'tiers' => [[1, 9, 6500], [10, 49, 5700], [50, null, 5000]],
         'photos' => ['abattant-wc-power-royal-1.jpg'],
     ],
+    [
+        'slug' => 'urinoir-mural-exclusive',
+        'name' => 'Urinoir mural céramique Exclusive',
+        'category' => 'wc-urinoirs',
+        'description' => "Urinoir mural en céramique sanitaire émaillée blanche, marque Exclusive. Alimentation par le haut, évacuation par le bas, perçages de fixation murale prévus. Surface vitrifiée non poreuse, facile à désinfecter. Modèle courant pour sanitaires d'école, de bureau, de restaurant ou de station-service.",
+        'price' => 38000,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 10,
+        'tiers' => [[1, 2, 38000], [3, 9, 35000], [10, null, 32000]],
+        'photos' => ['urinoir-mural-exclusive-1.jpg'],
+    ],
 
-    // ── Douches & Baignoires ─────────────────────────────────────────────
+    /*
+    |--------------------------------------------------------------------------
+    | Douches
+    |--------------------------------------------------------------------------
+    */
+
     [
         'slug' => 'colonne-de-douche-anthracite',
         'name' => 'Colonne de douche anthracite avec douchette carrée',
@@ -190,7 +266,7 @@ return [
         'price' => 6500,
         'old_price' => null,
         'badge' => null,
-        'stock' => 40,
+        'stock' => 32,
         'tiers' => [[1, 9, 6500], [10, 49, 5700], [50, null, 5000]],
         'photos' => ['ensemble-douchette-ronde-noire-1.jpg'],
     ],
@@ -202,12 +278,17 @@ return [
         'price' => 5500,
         'old_price' => null,
         'badge' => null,
-        'stock' => 50,
+        'stock' => 36,
         'tiers' => [[1, 9, 5500], [10, 49, 4800], [50, null, 4200]],
         'photos' => ['kit-douchette-power-royal-1.jpg'],
     ],
 
-    // ── Tuyauterie & Raccords ────────────────────────────────────────────
+    /*
+    |--------------------------------------------------------------------------
+    | Tuyauterie & Raccords
+    |--------------------------------------------------------------------------
+    */
+
     [
         'slug' => 'tuyau-pehd-pe100-couronne',
         'name' => 'Tuyau PEHD PE100 PN16 en couronne',
@@ -216,7 +297,7 @@ return [
         'price' => 45000,
         'old_price' => null,
         'badge' => 'Bestseller',
-        'stock' => 25,
+        'stock' => 15,
         'tiers' => [[1, 4, 45000], [5, 19, 41000], [20, null, 37000]],
         'photos' => ['tuyau-pehd-pe100-couronne-1.jpg'],
     ],
@@ -240,7 +321,7 @@ return [
         'price' => 1500,
         'old_price' => null,
         'badge' => null,
-        'stock' => 200,
+        'stock' => 180,
         'tiers' => [[1, 19, 1500], [20, 99, 1250], [100, null, 1000]],
         'photos' => ['mamelon-double-laiton-1.jpg'],
     ],
@@ -264,12 +345,77 @@ return [
         'price' => 2500,
         'old_price' => null,
         'badge' => null,
-        'stock' => 80,
+        'stock' => 90,
         'tiers' => [[1, 19, 2500], [20, 99, 2100], [100, null, 1800]],
         'photos' => ['bride-pvc-50-1-1-2-1.jpg'],
     ],
+    [
+        'slug' => 'bride-pvc-63-reservoir',
+        'name' => 'Bride PVC Ø63 pour réservoir avec bouchon',
+        'category' => 'tuyauterie',
+        'description' => "Bride de traversée PVC Ø63 pour cuve ou réservoir, livrée avec joint plat et bouchon de fermeture. Se monte de part et d'autre de la paroi pour créer un piquage étanche sans souder. Nervures de renfort contre le voilage au serrage. Compatible cuves polyéthylène et bacs béton.",
+        'price' => 3500,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 70,
+        'tiers' => [[1, 9, 3500], [10, 49, 3100], [50, null, 2750]],
+        'photos' => ['bride-pvc-63-reservoir-1.jpg'],
+    ],
+    [
+        'slug' => 'te-compression-pe-32',
+        'name' => 'Té de compression PE Ø32',
+        'category' => 'tuyauterie',
+        'description' => "Té égal à compression pour tube polyéthylène Ø32 mm. Corps polypropylène renforcé, bagues de serrage et joints toriques intégrés : l'assemblage se fait à la main puis à la clé, sans soudure ni colle. Démontable et réutilisable. Pression de service 16 bars, contact alimentaire.",
+        'price' => 3500,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 80,
+        'tiers' => [[1, 9, 3500], [10, 49, 3100], [50, null, 2700]],
+        'photos' => ['te-compression-pe-32-1.jpg'],
+    ],
+    [
+        'slug' => 'coude-compression-pe-32',
+        'name' => 'Coude de compression PE Ø32 à 90°',
+        'category' => 'tuyauterie',
+        'description' => "Coude à 90° à compression pour tube polyéthylène Ø32 mm, finition Italy Style. Corps polypropylène noir traité anti-UV, écrous de serrage crantés et joints toriques d'origine. Se monte sans outil spécifique et se démonte pour reprise du réseau. Pression de service 16 bars.",
+        'price' => 3200,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 85,
+        'tiers' => [[1, 9, 3200], [10, 49, 2850], [50, null, 2500]],
+        'photos' => ['coude-compression-pe-32-1.jpg', 'coude-compression-pe-32-2.jpg'],
+    ],
+    [
+        'slug' => 'raccord-male-compression-pe-25',
+        'name' => 'Raccord mâle compression PE Ø25 x 3/4"',
+        'category' => 'tuyauterie',
+        'description' => "Raccord droit à compression, tube polyéthylène Ø25 mm d'un côté, filetage mâle 3/4\" de l'autre. Fait la jonction entre un réseau PE enterré et une vanne, un compteur ou une nourrice filetée. Corps polypropylène renforcé, joints toriques montés, pression de service 16 bars.",
+        'price' => 2200,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 110,
+        'tiers' => [[1, 9, 2200], [10, 49, 1950], [50, null, 1700]],
+        'photos' => ['raccord-male-compression-pe-25-1.jpg'],
+    ],
+    [
+        'slug' => 'coude-pvc-pression-90',
+        'name' => 'Coude PVC pression 90° à coller Ø63',
+        'category' => 'tuyauterie',
+        'description' => "Coude PVC pression 90° à coller, diamètre 63 mm, teinte grise. Emboîtements calibrés pour un collage à la colle PVC pression, pour réseaux d'alimentation en eau froide sous pression jusqu'à 16 bars. Se recoupe proprement à la scie et s'ébavure au couteau avant collage.",
+        'price' => 1200,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 140,
+        'tiers' => [[1, 9, 1200], [10, 49, 1050], [50, null, 900]],
+        'photos' => ['coude-pvc-pression-90-1.jpg'],
+    ],
 
-    // ── Vannes & Clapets ─────────────────────────────────────────────────
+    /*
+    |--------------------------------------------------------------------------
+    | Vannes & Clapets
+    |--------------------------------------------------------------------------
+    */
+
     [
         'slug' => 'vanne-bille-pvc-union-era',
         'name' => 'Vanne à bille PVC union double ERA',
@@ -278,7 +424,7 @@ return [
         'price' => 12000,
         'old_price' => null,
         'badge' => 'Bestseller',
-        'stock' => 35,
+        'stock' => 30,
         'tiers' => [[1, 9, 12000], [10, 49, 10500], [50, null, 9200]],
         'photos' => ['vanne-bille-pvc-union-era-1.jpg', 'vanne-bille-pvc-union-era-2.jpg'],
     ],
@@ -290,12 +436,41 @@ return [
         'price' => 3500,
         'old_price' => null,
         'badge' => null,
-        'stock' => 90,
+        'stock' => 95,
         'tiers' => [[1, 19, 3500], [20, 99, 3000], [100, null, 2600]],
         'photos' => ['clapet-anti-retour-laiton-1.jpg'],
     ],
+    [
+        'slug' => 'vanne-compression-pe-32',
+        'name' => 'Vanne à boisseau compression PE Ø32',
+        'category' => 'vannes',
+        'description' => "Vanne à boisseau quart de tour à compression, entrée et sortie tube polyéthylène Ø32 mm. Corps polypropylène, boisseau plein passage, poignée papillon repérable d'un coup d'œil. Se pose directement sur le réseau PE sans raccord supplémentaire. Pression de service 16 bars.",
+        'price' => 9500,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 40,
+        'tiers' => [[1, 4, 9500], [5, 19, 8600], [20, null, 7800]],
+        'photos' => ['vanne-compression-pe-32-1.jpg'],
+    ],
+    [
+        'slug' => 'vanne-pvc-boisseau-a-coller',
+        'name' => 'Vanne PVC à boisseau à coller Ø32',
+        'category' => 'vannes',
+        'description' => "Vanne PVC quart de tour à coller, diamètre 32 mm, poignée rouge. Corps PVC-U gris, boisseau à passage intégral et joints EPDM. S'intercale sur un réseau PVC pression pour isoler une antenne sans couper toute l'installation. Ouverture et fermeture d'un quart de tour, sans outil.",
+        'price' => 4500,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 65,
+        'tiers' => [[1, 9, 4500], [10, 49, 4000], [50, null, 3500]],
+        'photos' => ['vanne-pvc-boisseau-a-coller-1.jpg', 'vanne-pvc-boisseau-a-coller-2.jpg'],
+    ],
 
-    // ── Collecteurs & Manifolds ──────────────────────────────────────────
+    /*
+    |--------------------------------------------------------------------------
+    | Collecteurs & Manifolds
+    |--------------------------------------------------------------------------
+    */
+
     [
         'slug' => 'collecteur-laiton-3-departs',
         'name' => 'Collecteur laiton 3 départs PFZ 20x27',
@@ -304,7 +479,7 @@ return [
         'price' => 14000,
         'old_price' => null,
         'badge' => null,
-        'stock' => 22,
+        'stock' => 25,
         'tiers' => [[1, 9, 14000], [10, 49, 12500], [50, null, 11000]],
         'photos' => ['collecteur-laiton-3-departs-1.jpg'],
     ],
@@ -316,7 +491,7 @@ return [
         'price' => 10000,
         'old_price' => null,
         'badge' => null,
-        'stock' => 26,
+        'stock' => 30,
         'tiers' => [[1, 9, 10000], [10, 49, 8900], [50, null, 7800]],
         'photos' => ['collecteur-laiton-2-departs-1.jpg'],
     ],
@@ -328,12 +503,17 @@ return [
         'price' => 28000,
         'old_price' => null,
         'badge' => null,
-        'stock' => 10,
+        'stock' => 12,
         'tiers' => [[1, 4, 28000], [5, 19, 25000], [20, null, 22000]],
         'photos' => ['coffret-collecteurs-grk-50-1.jpg'],
     ],
 
-    // ── Pompes & Surpresseurs ────────────────────────────────────────────
+    /*
+    |--------------------------------------------------------------------------
+    | Pompes & Surpresseurs
+    |--------------------------------------------------------------------------
+    */
+
     [
         'slug' => 'reservoir-surpresseur-vessie',
         'name' => 'Réservoir surpresseur à vessie horizontal',
@@ -354,7 +534,7 @@ return [
         'price' => 9000,
         'old_price' => null,
         'badge' => null,
-        'stock' => 32,
+        'stock' => 40,
         'tiers' => [[1, 9, 9000], [10, 49, 8000], [50, null, 7000]],
         'photos' => ['pressostat-pompe-fsg-2m-1.jpg'],
     ],
@@ -366,12 +546,17 @@ return [
         'price' => 7500,
         'old_price' => null,
         'badge' => null,
-        'stock' => 38,
+        'stock' => 45,
         'tiers' => [[1, 9, 7500], [10, 49, 6600], [50, null, 5800]],
         'photos' => ['interrupteur-flotteur-maat-mfs-1000-1.jpg'],
     ],
 
-    // ── Filtration & Traitement de l'eau ─────────────────────────────────
+    /*
+    |--------------------------------------------------------------------------
+    | Filtration & Traitement de l'eau
+    |--------------------------------------------------------------------------
+    */
+
     [
         'slug' => 'filtre-eau-industriel-20-pouces',
         'name' => 'Filtre à eau industriel 20" bleu sortie 50',
@@ -380,7 +565,7 @@ return [
         'price' => 40000,
         'old_price' => null,
         'badge' => 'Bestseller',
-        'stock' => 12,
+        'stock' => 10,
         'tiers' => [[1, 4, 40000], [5, 19, 36500], [20, null, 33000]],
         'photos' => ['filtre-eau-industriel-20-pouces-1.jpg'],
     ],
@@ -392,7 +577,7 @@ return [
         'price' => 12000,
         'old_price' => null,
         'badge' => null,
-        'stock' => 24,
+        'stock' => 28,
         'tiers' => [[1, 9, 12000], [10, 49, 10800], [50, null, 9500]],
         'photos' => ['porte-filtre-eau-a-class-gf106-1.jpg'],
     ],
@@ -416,12 +601,17 @@ return [
         'price' => 18000,
         'old_price' => null,
         'badge' => null,
-        'stock' => 14,
+        'stock' => 18,
         'tiers' => [[1, 4, 18000], [5, 19, 16200], [20, null, 14500]],
         'photos' => ['filtre-a-disques-1-1-2-1.jpg'],
     ],
 
-    // ── Compteurs & Détection de fuites ──────────────────────────────────
+    /*
+    |--------------------------------------------------------------------------
+    | Compteurs
+    |--------------------------------------------------------------------------
+    */
+
     [
         'slug' => 'compteur-eau-power-royal',
         'name' => 'Compteur d’eau Power Royal LXS-15E',
@@ -430,12 +620,17 @@ return [
         'price' => 15000,
         'old_price' => null,
         'badge' => null,
-        'stock' => 20,
+        'stock' => 25,
         'tiers' => [[1, 9, 15000], [10, 49, 13500], [50, null, 12000]],
         'photos' => ['compteur-eau-power-royal-1.jpg'],
     ],
 
-    // ── Évacuation & Drainage ────────────────────────────────────────────
+    /*
+    |--------------------------------------------------------------------------
+    | Évacuation & Drainage
+    |--------------------------------------------------------------------------
+    */
+
     [
         'slug' => 'siphon-de-sol-kmei',
         'name' => 'Siphon de sol KMEI 100x100 ABS',
@@ -444,12 +639,29 @@ return [
         'price' => 3500,
         'old_price' => null,
         'badge' => null,
-        'stock' => 70,
+        'stock' => 75,
         'tiers' => [[1, 19, 3500], [20, 99, 3000], [100, null, 2600]],
         'photos' => ['siphon-de-sol-kmei-1.jpg'],
     ],
+    [
+        'slug' => 'coude-pvc-evacuation-kmei',
+        'name' => 'Coude PVC évacuation KMEI Ø40',
+        'category' => 'evacuation',
+        'description' => "Coude PVC d'évacuation KMEI Ø40 mm, teinte grise, à coller. Pour les eaux usées d'un lavabo, d'un évier ou d'un bac à douche. Paroi lisse qui limite les dépôts, emboîtement profond pour un collage franc. Se recoupe à la scie à denture fine.",
+        'price' => 900,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 200,
+        'tiers' => [[1, 9, 900], [10, 49, 780], [50, null, 650]],
+        'photos' => ['coude-pvc-evacuation-kmei-1.jpg'],
+    ],
 
-    // ── Outils & Accessoires ─────────────────────────────────────────────
+    /*
+    |--------------------------------------------------------------------------
+    | Outils & Accessoires
+    |--------------------------------------------------------------------------
+    */
+
     [
         'slug' => 'coupe-tube-ppr-rapide',
         'name' => 'Coupe-tube PPR / PVC à cliquet',
@@ -462,8 +674,37 @@ return [
         'tiers' => [[1, 9, 4500], [10, 49, 4000], [50, null, 3500]],
         'photos' => ['coupe-tube-ppr-rapide-1.jpg'],
     ],
+    [
+        'slug' => 'cle-a-molette-300mm',
+        'name' => 'Clé à molette 300 mm (12")',
+        'category' => 'outils',
+        'description' => "Clé à molette 12 pouces / 300 mm, mâchoire acier chrome-vanadium, ouverture jusqu'à 35 mm. Molette large pour un réglage rapide d'une seule main, manche bi-matière antidérapant et œillet de suspension. La taille passe-partout pour les écrous de raccordement, siphons et brides.",
+        'price' => 6500,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 35,
+        'tiers' => [[1, 4, 6500], [5, 19, 5900], [20, null, 5300]],
+        'photos' => ['cle-a-molette-300mm-1.jpg'],
+    ],
+    [
+        'slug' => 'jeu-3-pinces-zlm-star',
+        'name' => 'Jeu de 3 pinces ZLM Star isolées',
+        'category' => 'outils',
+        'description' => "Jeu de trois pinces ZLM Star : pince universelle, pince à bec long et pince coupante diagonale. Acier au carbone traité, finition chromée, manches bi-matière antidérapants pour un usage intensif. Le trio de base de l'électricien comme du plombier. Vendu en lot de trois.",
+        'price' => 9000,
+        'old_price' => 11500,
+        'badge' => 'Lot de 3',
+        'stock' => 22,
+        'tiers' => [[1, 4, 9000], [5, 19, 8200], [20, null, 7400]],
+        'photos' => ['jeu-3-pinces-zlm-star-1.jpg'],
+    ],
 
-    // ── Colles, Soudures & Brasures ──────────────────────────────────────
+    /*
+    |--------------------------------------------------------------------------
+    | Colles, Soudures & Brasures
+    |--------------------------------------------------------------------------
+    */
+
     [
         'slug' => 'lampe-souder-kemper-tornado',
         'name' => 'Lampe à souder Kemper Tornado',
@@ -472,7 +713,7 @@ return [
         'price' => 22000,
         'old_price' => 26000,
         'badge' => 'Pro',
-        'stock' => 11,
+        'stock' => 14,
         'tiers' => [[1, 4, 22000], [5, 19, 20000], [20, null, 18000]],
         'photos' => ['lampe-souder-kemper-tornado-1.jpg'],
     ],
@@ -484,7 +725,7 @@ return [
         'price' => 15000,
         'old_price' => null,
         'badge' => null,
-        'stock' => 16,
+        'stock' => 18,
         'tiers' => [[1, 4, 15000], [5, 19, 13500], [20, null, 12000]],
         'photos' => ['lampe-souder-weldteam-1.jpg'],
     ],
@@ -500,8 +741,37 @@ return [
         'tiers' => [[1, 9, 8500], [10, 49, 7600], [50, null, 6700]],
         'photos' => ['colle-pvc-unecol-pegafor-1.jpg'],
     ],
+    [
+        'slug' => 'colle-pvc-geb-gebsoplast-max',
+        'name' => 'Colle PVC GEB Gebsoplast Max 500 ml',
+        'category' => 'colles-soudures',
+        'description' => "Colle PVC GEB Gebsoplast Max, pot de 500 ml avec pinceau applicateur intégré. Convient aux réseaux sous pression comme aux évacuations, sur PVC rigide et PVC-U. Prise rapide, mise en service possible après séchage complet. Formule certifiée pour l'eau destinée à la consommation humaine.",
+        'price' => 8500,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 35,
+        'tiers' => [[1, 4, 8500], [5, 19, 7800], [20, null, 7000]],
+        'photos' => ['colle-pvc-geb-gebsoplast-max-1.jpg'],
+    ],
+    [
+        'slug' => 'cartouche-gaz-butane-providus-190g',
+        'name' => 'Cartouche gaz butane Providus 190 g',
+        'category' => 'colles-soudures',
+        'description' => "Cartouche de gaz butane Providus 190 g à valve perçable, compatible avec les lampes à souder et chalumeaux de plombier du commerce. Mélange butane enrichi pour une flamme stable jusqu'à épuisement. À conserver debout, à l'abri du soleil. Se monte sur la lampe Kemper Tornado et les modèles équivalents.",
+        'price' => 3000,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 90,
+        'tiers' => [[1, 4, 3000], [5, 19, 2700], [20, null, 2400]],
+        'photos' => ['cartouche-gaz-butane-providus-190g-1.jpg'],
+    ],
 
-    // ── Joints & Produits d'étanchéité ───────────────────────────────────
+    /*
+    |--------------------------------------------------------------------------
+    | Joints & Produits d'étanchéité
+    |--------------------------------------------------------------------------
+    */
+
     [
         'slug' => 'ruban-teflon-ptfe-jaune',
         'name' => 'Ruban téflon PTFE jaune 19 mm x 30 m',
@@ -515,7 +785,52 @@ return [
         'photos' => ['ruban-teflon-ptfe-jaune-1.jpg'],
     ],
 
-    // ── Électricité & Domotique ──────────────────────────────────────────
+    /*
+    |--------------------------------------------------------------------------
+    | Électricité & Domotique
+    |--------------------------------------------------------------------------
+    |
+    | Le réseau camerounais (ENEO) est en 230 V / 50 Hz et connaît des
+    | variations de tension marquées : protection et sectionnement sont les
+    | rayons les plus demandés, devant l'appareillage de confort.
+    */
+
+    [
+        'slug' => 'protecteur-tension-reglable-40a',
+        'name' => 'Protecteur de tension réglable 2P/40A',
+        'category' => 'electricite',
+        'description' => "Protecteur de tension et de courant réglable AFMEP 2P/40A, montage sur rail DIN. Double afficheur : tension réseau en haut, intensité en bas. Coupe l'alimentation en cas de surtension, de sous-tension ou de surintensité, puis rétablit automatiquement une fois la ligne revenue dans les seuils réglés. Indispensable au Cameroun pour protéger réfrigérateurs, climatiseurs et téléviseurs des à-coups du réseau.",
+        'price' => 11000,
+        'old_price' => 14000,
+        'badge' => 'Indispensable',
+        'stock' => 26,
+        'tiers' => [[1, 4, 11000], [5, 19, 9800], [20, null, 8800]],
+        'photos' => ['protecteur-tension-reglable-40a-1.jpg', 'protecteur-tension-reglable-40a-2.jpg'],
+    ],
+    [
+        'slug' => 'disjoncteur-schneider-pg-60a',
+        'name' => 'Disjoncteur Schneider PG 60A non différentiel',
+        'category' => 'electricite',
+        'description' => "Disjoncteur de branchement Schneider Electric PG460000, non différentiel, calibre réglable 30/40/50/60 A. Bipolaire 380 V, pouvoir de coupure Icu 6 kA, conforme IEC 60947-2. Se pose en tête d'installation pour protéger l'ensemble du tableau. Livré avec ses plastrons de finition.",
+        'price' => 26000,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 15,
+        'tiers' => [[1, 4, 26000], [5, 19, 24000], [20, null, 22000]],
+        'photos' => ['disjoncteur-schneider-pg-60a-1.jpg'],
+    ],
+    [
+        'slug' => 'disjoncteur-schneider-pg-30a',
+        'name' => 'Disjoncteur Schneider PG 30A non différentiel',
+        'category' => 'electricite',
+        'description' => "Disjoncteur Schneider Electric PG320000, non différentiel, calibre réglable 10/15/20/25/30 A. Alimentation 220–240 V, pouvoir de coupure Icu 6 kA selon IEC 60947-2. Calibre courant pour un logement ou une boutique : il protège la ligne générale sans surdimensionner l'installation.",
+        'price' => 19000,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 20,
+        'tiers' => [[1, 4, 19000], [5, 19, 17500], [20, null, 16000]],
+        'photos' => ['disjoncteur-schneider-pg-30a-1.jpg'],
+    ],
     [
         'slug' => 'interrupteur-sectionneur-4p-100a',
         'name' => 'Interrupteur-sectionneur 4P 100A',
@@ -524,7 +839,7 @@ return [
         'price' => 18000,
         'old_price' => null,
         'badge' => null,
-        'stock' => 14,
+        'stock' => 16,
         'tiers' => [[1, 4, 18000], [5, 19, 16200], [20, null, 14500]],
         'photos' => ['interrupteur-sectionneur-4p-100a-1.jpg'],
     ],
@@ -536,9 +851,57 @@ return [
         'price' => 6500,
         'old_price' => null,
         'badge' => null,
-        'stock' => 26,
+        'stock' => 34,
         'tiers' => [[1, 9, 6500], [10, 49, 5800], [50, null, 5100]],
         'photos' => ['interrupteur-sectionneur-2p-32a-1.jpg'],
+    ],
+    [
+        'slug' => 'coffret-modulaire-yaki-24-modules',
+        'name' => 'Coffret modulaire YAKI 24 modules encastré',
+        'category' => 'electricite',
+        'description' => "Coffret de distribution YAKI Electric référence 2724EF, 24 modules sur deux rangées, pose encastrée avec porte fumée. Espace sous rail de 16 mm au lieu de 8 mm, fenêtres facilement défonçables, vis longues imperdables et obturateurs livrés pour empêcher le ciment d'entrer pendant la pose. Garanti 2 ans.",
+        'price' => 14500,
+        'old_price' => 18000,
+        'badge' => 'Nouveau',
+        'stock' => 20,
+        'tiers' => [[1, 4, 14500], [5, 19, 13200], [20, null, 12000]],
+        'photos' => ['coffret-modulaire-yaki-24-modules-1.jpg'],
+    ],
+    [
+        'slug' => 'fil-rigide-h07vu-couronne-100m',
+        'name' => 'Fil rigide H07V-U 2,5 mm² couronne 100 m',
+        'category' => 'electricite',
+        'description' => "Fil électrique rigide H07V-U, âme cuivre 2,5 mm², isolant PVC 450/750 V, en couronne de 100 mètres. Section de référence pour les circuits prises d'un logement. Disponible en plusieurs coloris de repérage — bleu, rouge, noir, vert/jaune — pour respecter le code des conducteurs. Prix à la couronne.",
+        'price' => 17800,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 30,
+        'tiers' => [[1, 4, 17800], [5, 19, 16500], [20, null, 15200]],
+        'photos' => ['fil-rigide-h07vu-couronne-100m-1.jpg', 'fil-rigide-h07vu-couronne-100m-2.jpg'],
+    ],
+    [
+        'slug' => 'fil-rigide-h07vu-1-5mm-couronne-100m',
+        'name' => 'Fil rigide H07V-U 1,5 mm² couronne 100 m',
+        'category' => 'electricite',
+        'description' => "Fil rigide H07V-U âme cuivre 1,5 mm², isolant PVC 450/750 V, couronne de 100 mètres. La section des circuits d'éclairage et des va-et-vient. Même code couleur que le 2,5 mm² — bleu, rouge, noir, vert/jaune — pour un repérage conforme du neutre, des phases et de la terre. Prix à la couronne.",
+        'price' => 11500,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 34,
+        'tiers' => [[1, 4, 11500], [5, 19, 10600], [20, null, 9700]],
+        'photos' => ['fil-rigide-h07vu-couronne-100m-2.jpg'],
+    ],
+    [
+        'slug' => 'fil-rigide-h07vu-4mm-couronne-100m',
+        'name' => 'Fil rigide H07V-U 4 mm² couronne 100 m',
+        'category' => 'electricite',
+        'description' => "Fil rigide H07V-U âme cuivre 4 mm², isolant PVC 450/750 V, couronne de 100 mètres. Section retenue pour les circuits spécialisés à forte demande : chauffe-eau, climatiseur, plaque de cuisson ou alimentation d'un tableau divisionnaire. Prix à la couronne.",
+        'price' => 28000,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 20,
+        'tiers' => [[1, 4, 28000], [5, 19, 26000], [20, null, 24000]],
+        'photos' => ['fil-rigide-h07vu-couronne-100m-2.jpg'],
     ],
     [
         'slug' => 'gaine-icta-20-100m',
@@ -548,7 +911,7 @@ return [
         'price' => 12000,
         'old_price' => null,
         'badge' => null,
-        'stock' => 30,
+        'stock' => 25,
         'tiers' => [[1, 4, 12000], [5, 19, 10800], [20, null, 9600]],
         'photos' => ['gaine-icta-20-100m-1.jpg'],
     ],
@@ -560,7 +923,7 @@ return [
         'price' => 18000,
         'old_price' => null,
         'badge' => null,
-        'stock' => 18,
+        'stock' => 16,
         'tiers' => [[1, 4, 18000], [5, 19, 16200], [20, null, 14500]],
         'photos' => ['gaine-tpc-annelee-1.jpg'],
     ],
@@ -576,78 +939,17 @@ return [
         'tiers' => [[1, 19, 1500], [20, 99, 1280], [100, null, 1100]],
         'photos' => ['boitier-encastrement-kmei-1.jpg'],
     ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | Arrivage électricité & second œuvre
-    |--------------------------------------------------------------------------
-    |
-    | Second lot photographié en magasin. Les doublons du premier lot ont été
-    | écartés : mécanisme de chasse MAAT, porte-filtre 10" et boîtiers
-    | d'encastrement figuraient déjà au catalogue.
-    |
-    */
-
-    // ── Électricité & Domotique ──────────────────────────────────────────
     [
-        'slug' => 'protecteur-tension-reglable-40a',
-        'name' => 'Protecteur de tension réglable 2P/40A',
+        'slug' => 'boitier-encastrement-yaki',
+        'name' => 'Boîtier d’encastrement YAKI Electric',
         'category' => 'electricite',
-        'description' => "Protecteur de tension et de courant réglable AFMEP 2P/40A, montage sur rail DIN. Double afficheur : tension réseau en haut, intensité en bas. Coupe l'alimentation en cas de surtension, de sous-tension ou de surintensité, puis rétablit automatiquement une fois la ligne revenue dans les seuils réglés. Indispensable au Cameroun pour protéger réfrigérateurs, climatiseurs et téléviseurs des à-coups du réseau.",
-        'price' => 11000,
-        'old_price' => 14000,
-        'badge' => 'Indispensable',
-        'stock' => 30,
-        'tiers' => [[1, 4, 11000], [5, 19, 9800], [20, null, 8800]],
-        'photos' => ['protecteur-tension-reglable-40a-1.jpg'],
-    ],
-    [
-        'slug' => 'disjoncteur-schneider-pg-60a',
-        'name' => 'Disjoncteur Schneider PG 60A non différentiel',
-        'category' => 'electricite',
-        'description' => "Disjoncteur de branchement Schneider Electric PG460000, non différentiel, calibre réglable 30/40/50/60 A. Bipolaire 380 V, pouvoir de coupure Icu 6 kA, conforme IEC 60947-2. Se pose en tête d'installation pour protéger l'ensemble du tableau. Livré avec ses plastrons de finition.",
-        'price' => 26000,
+        'description' => "Boîtier d'encastrement YAKI Electric en PVC bleu, entrées défonçables Ø20 et Ø25 sur les quatre faces et le fond. Pattes de fixation renforcées et logements de vis moulés qui ne s'arrachent pas au vissage de l'appareillage. Se scelle dans la cloison ou le parpaing pour recevoir prise, interrupteur ou boîte de dérivation. Vendu à l'unité.",
+        'price' => 1200,
         'old_price' => null,
-        'badge' => null,
-        'stock' => 14,
-        'tiers' => [[1, 4, 26000], [5, 19, 24000], [20, null, 22000]],
-        'photos' => ['disjoncteur-schneider-pg-60a-1.jpg'],
-    ],
-    [
-        'slug' => 'disjoncteur-schneider-pg-30a',
-        'name' => 'Disjoncteur Schneider PG 30A non différentiel',
-        'category' => 'electricite',
-        'description' => "Disjoncteur Schneider Electric PG320000, non différentiel, calibre réglable 10/15/20/25/30 A. Alimentation 220–240 V, pouvoir de coupure Icu 6 kA selon IEC 60947-2. Calibre courant pour un logement ou une boutique : il protège la ligne générale sans surdimensionner l'installation.",
-        'price' => 19000,
-        'old_price' => null,
-        'badge' => null,
-        'stock' => 18,
-        'tiers' => [[1, 4, 19000], [5, 19, 17500], [20, null, 16000]],
-        'photos' => ['disjoncteur-schneider-pg-30a-1.jpg'],
-    ],
-    [
-        'slug' => 'coffret-modulaire-yaki-24-modules',
-        'name' => 'Coffret modulaire YAKI 24 modules encastré',
-        'category' => 'electricite',
-        'description' => "Coffret de distribution YAKI Electric référence 2724EF, 24 modules sur deux rangées, pose encastrée avec porte fumée. Espace sous rail de 16 mm au lieu de 8 mm, fenêtres facilement défonçables, vis longues imperdables et obturateurs livrés pour empêcher le ciment d'entrer pendant la pose. Garanti 2 ans.",
-        'price' => 14500,
-        'old_price' => 18000,
         'badge' => 'Nouveau',
-        'stock' => 22,
-        'tiers' => [[1, 4, 14500], [5, 19, 13200], [20, null, 12000]],
-        'photos' => ['coffret-modulaire-yaki-24-modules-1.jpg'],
-    ],
-    [
-        'slug' => 'fil-rigide-h07vu-couronne-100m',
-        'name' => 'Fil rigide H07V-U 2,5 mm² couronne 100 m',
-        'category' => 'electricite',
-        'description' => "Fil électrique rigide H07V-U, âme cuivre 2,5 mm², isolant PVC 450/750 V, en couronne de 100 mètres. Section de référence pour les circuits prises d'un logement. Disponible en plusieurs coloris de repérage — bleu, rouge, noir, vert/jaune — pour respecter le code des conducteurs. Prix à la couronne.",
-        'price' => 17800,
-        'old_price' => null,
-        'badge' => null,
-        'stock' => 45,
-        'tiers' => [[1, 4, 17800], [5, 19, 16500], [20, null, 15200]],
-        'photos' => ['fil-rigide-h07vu-couronne-100m-1.jpg'],
+        'stock' => 220,
+        'tiers' => [[1, 19, 1200], [20, 99, 1000], [100, null, 850]],
+        'photos' => ['boitier-encastrement-yaki-1.jpg'],
     ],
     [
         'slug' => 'goulotte-cablage-pvc-blanche',
@@ -657,9 +959,9 @@ return [
         'price' => 2500,
         'old_price' => null,
         'badge' => null,
-        'stock' => 80,
+        'stock' => 120,
         'tiers' => [[1, 9, 2500], [10, 49, 2200], [50, null, 1950]],
-        'photos' => ['goulotte-cablage-pvc-blanche-1.jpg'],
+        'photos' => ['goulotte-cablage-pvc-blanche-1.jpg', 'goulotte-cablage-pvc-blanche-2.jpg'],
     ],
     [
         'slug' => 'ruban-isolant-abro-19mm',
@@ -669,7 +971,7 @@ return [
         'price' => 700,
         'old_price' => null,
         'badge' => null,
-        'stock' => 200,
+        'stock' => 250,
         'tiers' => [[1, 9, 700], [10, 49, 600], [50, null, 500]],
         'photos' => ['ruban-isolant-abro-19mm-1.jpg'],
     ],
@@ -681,12 +983,17 @@ return [
         'price' => 1200,
         'old_price' => null,
         'badge' => null,
-        'stock' => 150,
+        'stock' => 144,
         'tiers' => [[1, 11, 1200], [12, 47, 1000], [48, null, 850]],
         'photos' => ['adaptateur-prise-universel-1.jpg'],
     ],
 
-    // ── Éclairage ────────────────────────────────────────────────────────
+    /*
+    |--------------------------------------------------------------------------
+    | Éclairage
+    |--------------------------------------------------------------------------
+    */
+
     [
         'slug' => 'panneau-led-rond-18w',
         'name' => 'Panneau LED rond encastrable 18 W',
@@ -699,60 +1006,37 @@ return [
         'tiers' => [[1, 9, 5500], [10, 49, 4900], [50, null, 4300]],
         'photos' => ['panneau-led-rond-18w-1.jpg'],
     ],
-
-    // ── Outils & Accessoires ─────────────────────────────────────────────
     [
-        'slug' => 'jeu-3-pinces-zlm-star',
-        'name' => 'Jeu de 3 pinces ZLM Star isolées',
-        'category' => 'outils',
-        'description' => "Jeu de trois pinces ZLM Star : pince universelle, pince à bec long et pince coupante diagonale. Acier au carbone traité, finition chromée, manches bi-matière antidérapants pour un usage intensif. Le trio de base de l'électricien comme du plombier. Vendu en lot de trois.",
-        'price' => 9000,
-        'old_price' => 11500,
-        'badge' => 'Lot de 3',
-        'stock' => 25,
-        'tiers' => [[1, 4, 9000], [5, 19, 8200], [20, null, 7400]],
-        'photos' => ['jeu-3-pinces-zlm-star-1.jpg'],
-    ],
-    [
-        'slug' => 'cle-a-molette-300mm',
-        'name' => 'Clé à molette 300 mm (12")',
-        'category' => 'outils',
-        'description' => "Clé à molette 12 pouces / 300 mm, mâchoire acier chrome-vanadium, ouverture jusqu'à 35 mm. Molette large pour un réglage rapide d'une seule main, manche bi-matière antidérapant et œillet de suspension. La taille passe-partout pour les écrous de raccordement, siphons et brides.",
-        'price' => 6500,
-        'old_price' => null,
-        'badge' => null,
-        'stock' => 35,
-        'tiers' => [[1, 4, 6500], [5, 19, 5900], [20, null, 5300]],
-        'photos' => ['cle-a-molette-300mm-1.jpg'],
-    ],
-
-    // ── Colles, Soudures & Brasures ──────────────────────────────────────
-    [
-        'slug' => 'colle-pvc-geb-gebsoplast-max',
-        'name' => 'Colle PVC GEB Gebsoplast Max 500 ml',
-        'category' => 'colles-soudures',
-        'description' => "Colle PVC GEB Gebsoplast Max, pot de 500 ml avec pinceau applicateur intégré. Convient aux réseaux sous pression comme aux évacuations, sur PVC rigide et PVC-U. Prise rapide, mise en service possible après séchage complet. Formule certifiée pour l'eau destinée à la consommation humaine.",
-        'price' => 8500,
-        'old_price' => null,
-        'badge' => null,
-        'stock' => 40,
-        'tiers' => [[1, 4, 8500], [5, 19, 7800], [20, null, 7000]],
-        'photos' => ['colle-pvc-geb-gebsoplast-max-1.jpg'],
-    ],
-    [
-        'slug' => 'cartouche-gaz-butane-providus-190g',
-        'name' => 'Cartouche gaz butane Providus 190 g',
-        'category' => 'colles-soudures',
-        'description' => "Cartouche de gaz butane Providus 190 g à valve perçable, compatible avec les lampes à souder et chalumeaux de plombier du commerce. Mélange butane enrichi pour une flamme stable jusqu'à épuisement. À conserver debout, à l'abri du soleil. Se monte sur la lampe Kemper Tornado et les modèles équivalents.",
-        'price' => 3000,
+        'slug' => 'panneau-led-rond-12w',
+        'name' => 'Panneau LED rond encastrable 12 W',
+        'category' => 'eclairage',
+        'description' => 'Spot LED rond encastrable extra-plat 12 W, cadre blanc, lumière du jour 6500 K. Environ 1000 lumens : le format qui convient aux couloirs, dégagements et petites pièces, là où le 18 W éclairerait trop. Driver et ressorts de fixation fournis.',
+        'price' => 4200,
         'old_price' => null,
         'badge' => null,
         'stock' => 70,
-        'tiers' => [[1, 4, 3000], [5, 19, 2700], [20, null, 2400]],
-        'photos' => ['cartouche-gaz-butane-providus-190g-1.jpg'],
+        'tiers' => [[1, 9, 4200], [10, 49, 3700], [50, null, 3200]],
+        'photos' => ['panneau-led-rond-18w-1.jpg'],
+    ],
+    [
+        'slug' => 'panneau-led-rond-24w',
+        'name' => 'Panneau LED rond encastrable 24 W',
+        'category' => 'eclairage',
+        'description' => 'Spot LED rond encastrable extra-plat 24 W, cadre blanc, lumière du jour 6500 K. Environ 2200 lumens : réservé aux grandes pièces, boutiques et bureaux où il remplace avantageusement deux points lumineux. Driver et ressorts de fixation fournis.',
+        'price' => 7500,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 45,
+        'tiers' => [[1, 9, 7500], [10, 49, 6800], [50, null, 6100]],
+        'photos' => ['panneau-led-rond-18w-1.jpg'],
     ],
 
-    // ── Peinture & Décoration ────────────────────────────────────────────
+    /*
+    |--------------------------------------------------------------------------
+    | Peinture & Décoration
+    |--------------------------------------------------------------------------
+    */
+
     [
         'slug' => 'peinture-gold-star-classique-30kg',
         'name' => 'Peinture Gold Star Classique 30 kg',
@@ -761,7 +1045,7 @@ return [
         'price' => 17000,
         'old_price' => 20000,
         'badge' => 'Chantier',
-        'stock' => 26,
+        'stock' => 22,
         'tiers' => [[1, 4, 17000], [5, 19, 15800], [20, null, 14500]],
         'photos' => ['peinture-gold-star-classique-30kg-1.jpg'],
     ],
@@ -778,7 +1062,12 @@ return [
         'photos' => ['rouleau-peinture-manche-orange-1.jpg'],
     ],
 
-    // ── Quincaillerie & Serrurerie ───────────────────────────────────────
+    /*
+    |--------------------------------------------------------------------------
+    | Quincaillerie & Serrurerie
+    |--------------------------------------------------------------------------
+    */
+
     [
         'slug' => 'verrou-surete-parfait-p136',
         'name' => 'Verrou de sûreté PARFAIT P136',
@@ -787,12 +1076,17 @@ return [
         'price' => 6500,
         'old_price' => null,
         'badge' => null,
-        'stock' => 40,
+        'stock' => 28,
         'tiers' => [[1, 4, 6500], [5, 19, 5900], [20, null, 5300]],
         'photos' => ['verrou-surete-parfait-p136-1.jpg'],
     ],
 
-    // ── Arrosage & Irrigation ────────────────────────────────────────────
+    /*
+    |--------------------------------------------------------------------------
+    | Arrosage & Irrigation
+    |--------------------------------------------------------------------------
+    */
+
     [
         'slug' => 'tuyau-arrosage-jaune-couronne',
         'name' => 'Tuyau d’arrosage jaune renforcé 50 m',
@@ -801,166 +1095,546 @@ return [
         'price' => 14000,
         'old_price' => null,
         'badge' => null,
-        'stock' => 30,
+        'stock' => 20,
         'tiers' => [[1, 4, 14000], [5, 19, 12800], [20, null, 11500]],
         'photos' => ['tuyau-arrosage-jaune-couronne-1.jpg'],
     ],
 
-    // ── Tuyauterie & Raccords ────────────────────────────────────────────
-    [
-        'slug' => 'te-compression-pe-32',
-        'name' => 'Té de compression PE Ø32',
-        'category' => 'tuyauterie',
-        'description' => "Té égal à compression pour tube polyéthylène Ø32 mm. Corps polypropylène renforcé, bagues de serrage et joints toriques intégrés : l'assemblage se fait à la main puis à la clé, sans soudure ni colle. Démontable et réutilisable. Pression de service 16 bars, contact alimentaire.",
-        'price' => 3500,
-        'old_price' => null,
-        'badge' => null,
-        'stock' => 60,
-        'tiers' => [[1, 9, 3500], [10, 49, 3100], [50, null, 2700]],
-        'photos' => ['te-compression-pe-32-1.jpg'],
-    ],
-    [
-        'slug' => 'coude-compression-pe-32',
-        'name' => 'Coude de compression PE Ø32 à 90°',
-        'category' => 'tuyauterie',
-        'description' => "Coude à 90° à compression pour tube polyéthylène Ø32 mm, finition Italy Style. Corps polypropylène noir traité anti-UV, écrous de serrage crantés et joints toriques d'origine. Se monte sans outil spécifique et se démonte pour reprise du réseau. Pression de service 16 bars.",
-        'price' => 3200,
-        'old_price' => null,
-        'badge' => null,
-        'stock' => 65,
-        'tiers' => [[1, 9, 3200], [10, 49, 2850], [50, null, 2500]],
-        'photos' => ['coude-compression-pe-32-1.jpg', 'coude-compression-pe-32-2.jpg'],
-    ],
-    [
-        'slug' => 'raccord-male-compression-pe-25',
-        'name' => 'Raccord mâle compression PE Ø25 x 3/4"',
-        'category' => 'tuyauterie',
-        'description' => "Raccord droit à compression, tube polyéthylène Ø25 mm d'un côté, filetage mâle 3/4\" de l'autre. Fait la jonction entre un réseau PE enterré et une vanne, un compteur ou une nourrice filetée. Corps polypropylène renforcé, joints toriques montés, pression de service 16 bars.",
-        'price' => 2200,
-        'old_price' => null,
-        'badge' => null,
-        'stock' => 80,
-        'tiers' => [[1, 9, 2200], [10, 49, 1950], [50, null, 1700]],
-        'photos' => ['raccord-male-compression-pe-25-1.jpg'],
-    ],
-    [
-        'slug' => 'coude-pvc-pression-90',
-        'name' => 'Coude PVC pression 90° à coller Ø63',
-        'category' => 'tuyauterie',
-        'description' => "Coude PVC pression 90° à coller, diamètre 63 mm, teinte grise. Emboîtements calibrés pour un collage à la colle PVC pression, pour réseaux d'alimentation en eau froide sous pression jusqu'à 16 bars. Se recoupe proprement à la scie et s'ébavure au couteau avant collage.",
-        'price' => 1200,
-        'old_price' => null,
-        'badge' => null,
-        'stock' => 120,
-        'tiers' => [[1, 9, 1200], [10, 49, 1050], [50, null, 900]],
-        'photos' => ['coude-pvc-pression-90-1.jpg'],
-    ],
-    [
-        'slug' => 'bride-pvc-63-reservoir',
-        'name' => 'Bride PVC Ø63 pour réservoir avec bouchon',
-        'category' => 'tuyauterie',
-        'description' => "Bride de traversée PVC Ø63 pour cuve ou réservoir, livrée avec joint plat et bouchon de fermeture. Se monte de part et d'autre de la paroi pour créer un piquage étanche sans souder. Nervures de renfort contre le voilage au serrage. Compatible cuves polyéthylène et bacs béton.",
-        'price' => 3500,
-        'old_price' => null,
-        'badge' => null,
-        'stock' => 50,
-        'tiers' => [[1, 9, 3500], [10, 49, 3100], [50, null, 2750]],
-        'photos' => ['bride-pvc-63-reservoir-1.jpg'],
-    ],
+    /*
+    |==========================================================================
+    | Références en rayon, pas encore photographiées
+    |==========================================================================
+    |
+    | `photos` vide : le seeder pose une vignette « Photo à venir » aux
+    | couleurs de la boutique. Remplacer par la vraie photo depuis le
+    | back-office (Produits → Modifier → Image principale) au fur et à
+    | mesure des prises de vue en magasin.
+    |
+    | Prix : fourchettes relevées en quincaillerie à Douala et Yaoundé.
+    | À ajuster avant mise en ligne.
+    */
 
-    // ── Vannes & Clapets ─────────────────────────────────────────────────
+    // ── Raccords PVC pression ────────────────────────────────────────────
     [
-        'slug' => 'vanne-compression-pe-32',
-        'name' => 'Vanne à boisseau compression PE Ø32',
-        'category' => 'vannes',
-        'description' => "Vanne à boisseau quart de tour à compression, entrée et sortie tube polyéthylène Ø32 mm. Corps polypropylène, boisseau plein passage, poignée papillon repérable d'un coup d'œil. Se pose directement sur le réseau PE sans raccord supplémentaire. Pression de service 16 bars.",
-        'price' => 9500,
-        'old_price' => null,
-        'badge' => null,
-        'stock' => 32,
-        'tiers' => [[1, 4, 9500], [5, 19, 8600], [20, null, 7800]],
-        'photos' => ['vanne-compression-pe-32-1.jpg'],
-    ],
-    [
-        'slug' => 'vanne-pvc-boisseau-a-coller',
-        'name' => 'Vanne PVC à boisseau à coller Ø32',
-        'category' => 'vannes',
-        'description' => "Vanne PVC quart de tour à coller, diamètre 32 mm, poignée rouge. Corps PVC-U gris, boisseau à passage intégral et joints EPDM. S'intercale sur un réseau PVC pression pour isoler une antenne sans couper toute l'installation. Ouverture et fermeture d'un quart de tour, sans outil.",
-        'price' => 4500,
-        'old_price' => null,
-        'badge' => null,
-        'stock' => 55,
-        'tiers' => [[1, 9, 4500], [10, 49, 4000], [50, null, 3500]],
-        'photos' => ['vanne-pvc-boisseau-a-coller-1.jpg', 'vanne-pvc-boisseau-a-coller-2.jpg'],
-    ],
-
-    // ── Évacuation & Drainage ────────────────────────────────────────────
-    [
-        'slug' => 'coude-pvc-evacuation-kmei',
-        'name' => 'Coude PVC évacuation KMEI Ø40',
-        'category' => 'evacuation',
-        'description' => "Coude PVC d'évacuation KMEI Ø40 mm, teinte grise, à coller. Pour les eaux usées d'un lavabo, d'un évier ou d'un bac à douche. Paroi lisse qui limite les dépôts, emboîtement profond pour un collage franc. Se recoupe à la scie à denture fine.",
+        'slug' => 'coude-pvc-pression-90-50',
+        'name' => 'Coude PVC pression 90° à coller Ø50',
+        'category' => 'tuyauterie',
+        'description' => "Coude PVC pression 90° à coller, diamètre 50 mm, teinte grise. Change la direction d'une colonne d'alimentation sous pression jusqu'à 16 bars. Emboîtements calibrés pour un collage franc à la colle PVC pression. Ébavurer au couteau avant encollage pour une soudure chimique propre.",
         'price' => 900,
         'old_price' => null,
         'badge' => null,
-        'stock' => 150,
-        'tiers' => [[1, 9, 900], [10, 49, 780], [50, null, 650]],
-        'photos' => ['coude-pvc-evacuation-kmei-1.jpg'],
+        'stock' => 160,
+        'tiers' => [[1, 9, 900], [10, 49, 780], [50, null, 660]],
+        'photos' => [],
     ],
-
-    // ── Robinetterie ─────────────────────────────────────────────────────
     [
-        'slug' => 'robinet-evier-mural-power-royal',
-        'name' => 'Robinet évier mural Power Royal col-de-cygne',
-        'category' => 'robinetterie',
-        'description' => "Robinet d'évier mural Power Royal, bec col-de-cygne orientable et corps laiton chromé. Tête céramique quart de tour, mousseur anti-éclaboussures et filetage mâle 1/2\" pour raccordement direct sur la sortie murale. Finition brillante annoncée « German Technology », pensée pour la cuisine comme pour la buanderie.",
-        'price' => 12000,
-        'old_price' => 15000,
-        'badge' => null,
-        'stock' => 28,
-        'tiers' => [[1, 4, 12000], [5, 19, 10800], [20, null, 9700]],
-        'photos' => ['robinet-evier-mural-power-royal-1.jpg'],
-    ],
-
-    // ── Sanitaire ────────────────────────────────────────────────────────
-    [
-        'slug' => 'douchette-wc-kmei-verdun-912',
-        'name' => 'Douchette WC KMEI Verdun 912 avec flexible',
-        'category' => 'sanitaire',
-        'description' => "Ensemble douchette hygiénique KMEI Verdun 912 : poignée métal chromé à gâchette, flexible tressé noir de 1,20 m et support mural. Robinet d'arrêt d'équerre à prévoir séparément. Se raccorde sur l'alimentation du WC en 1/2\". Jet concentré, débit maîtrisé à la pression du doigt.",
-        'price' => 7500,
-        'old_price' => 9500,
-        'badge' => null,
-        'stock' => 36,
-        'tiers' => [[1, 4, 7500], [5, 19, 6800], [20, null, 6100]],
-        'photos' => ['douchette-wc-kmei-verdun-912-1.jpg'],
-    ],
-
-    // ── WC & Urinoirs ────────────────────────────────────────────────────
-    [
-        'slug' => 'urinoir-mural-exclusive',
-        'name' => 'Urinoir mural céramique Exclusive',
-        'category' => 'wc-urinoirs',
-        'description' => "Urinoir mural en céramique sanitaire émaillée blanche, marque Exclusive. Alimentation par le haut, évacuation par le bas, perçages de fixation murale prévus. Surface vitrifiée non poreuse, facile à désinfecter. Modèle courant pour sanitaires d'école, de bureau, de restaurant ou de station-service.",
-        'price' => 38000,
+        'slug' => 'coude-pvc-pression-45-63',
+        'name' => 'Coude PVC pression 45° à coller Ø63',
+        'category' => 'tuyauterie',
+        'description' => "Coude PVC pression 45° à coller, diamètre 63 mm. L'angle doux à préférer au 90° sur les longues colonnes : il limite la perte de charge et le bruit d'écoulement. Deux coudes 45° remplacent avantageusement un coude droit dans un contournement d'obstacle.",
+        'price' => 1300,
         'old_price' => null,
         'badge' => null,
-        'stock' => 10,
-        'tiers' => [[1, 2, 38000], [3, 9, 35000], [10, null, 32000]],
-        'photos' => ['urinoir-mural-exclusive-1.jpg'],
+        'stock' => 120,
+        'tiers' => [[1, 9, 1300], [10, 49, 1150], [50, null, 980]],
+        'photos' => [],
+    ],
+    [
+        'slug' => 'te-pvc-pression-63',
+        'name' => 'Té PVC pression égal à coller Ø63',
+        'category' => 'tuyauterie',
+        'description' => "Té égal PVC pression à coller, trois sorties Ø63 mm. Crée une dérivation sur une colonne d'alimentation sans réduire le diamètre. Corps gris PVC-U, pression de service 16 bars, emboîtements profonds pour un collage résistant.",
+        'price' => 1800,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 100,
+        'tiers' => [[1, 9, 1800], [10, 49, 1600], [50, null, 1400]],
+        'photos' => [],
+    ],
+    [
+        'slug' => 'manchon-pvc-pression-63',
+        'name' => 'Manchon PVC pression à coller Ø63',
+        'category' => 'tuyauterie',
+        'description' => 'Manchon droit PVC pression à coller Ø63 mm. Aboute deux tubes bout à bout, que ce soit pour rallonger une colonne ou réparer une section percée. Le raccord le moins cher et le plus utilisé du réseau sous pression.',
+        'price' => 900,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 180,
+        'tiers' => [[1, 9, 900], [10, 49, 780], [50, null, 660]],
+        'photos' => [],
+    ],
+    [
+        'slug' => 'reduction-pvc-pression-63-50',
+        'name' => 'Réduction PVC pression Ø63 x Ø50',
+        'category' => 'tuyauterie',
+        'description' => 'Réduction PVC pression à coller, passage du Ø63 au Ø50 mm. Permet de descendre en diamètre en sortie de colonne principale vers une antenne secondaire, sans adaptateur intermédiaire. PVC-U gris, 16 bars.',
+        'price' => 1000,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 130,
+        'tiers' => [[1, 9, 1000], [10, 49, 880], [50, null, 750]],
+        'photos' => [],
     ],
 
-    // ── Lavabos & Éviers ─────────────────────────────────────────────────
+    // ── Raccords PVC évacuation ──────────────────────────────────────────
     [
-        'slug' => 'lavabo-colonne-golf-exclusive',
-        'name' => 'Lavabo sur colonne Golf Exclusive',
-        'category' => 'lavabos',
-        'description' => "Lavabo en céramique sanitaire Golf Exclusive avec sa colonne assortie, décor moulé en relief. Percé d'un trou central pour robinetterie et d'un trop-plein. La colonne masque le siphon et l'alimentation, ce qui évite un meuble sous vasque. Vendu lavabo + colonne ; robinetterie et vidage à prévoir.",
-        'price' => 42000,
-        'old_price' => 48000,
+        'slug' => 'coude-pvc-evacuation-100',
+        'name' => 'Coude PVC évacuation Ø100 à 87°30',
+        'category' => 'evacuation',
+        'description' => "Coude PVC d'évacuation Ø100 mm à 87°30, le standard des chutes d'eaux usées et de la sortie de cuvette WC. Le léger déport par rapport au 90° conserve la pente et évite l'engorgement au pied de chute. À coller à la colle PVC évacuation.",
+        'price' => 2200,
+        'old_price' => null,
         'badge' => null,
-        'stock' => 8,
-        'tiers' => [[1, 2, 42000], [3, 9, 39000], [10, null, 36000]],
-        'photos' => ['lavabo-colonne-golf-exclusive-1.jpg'],
+        'stock' => 90,
+        'tiers' => [[1, 9, 2200], [10, 49, 1950], [50, null, 1700]],
+        'photos' => [],
+    ],
+    [
+        'slug' => 'te-pvc-evacuation-100',
+        'name' => 'Té PVC évacuation Ø100',
+        'category' => 'evacuation',
+        'description' => "Té PVC d'évacuation Ø100 mm pour raccorder une antenne d'eaux usées sur une chute existante. Angle d'entrée étudié pour accompagner l'écoulement plutôt que le contrarier. Paroi lisse limitant les dépôts.",
+        'price' => 3000,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 70,
+        'tiers' => [[1, 9, 3000], [10, 49, 2650], [50, null, 2300]],
+        'photos' => [],
+    ],
+    [
+        'slug' => 'manchon-pvc-evacuation-100',
+        'name' => 'Manchon PVC évacuation Ø100',
+        'category' => 'evacuation',
+        'description' => 'Manchon droit PVC évacuation Ø100 mm. Aboute deux tronçons de chute ou répare une section coupée. Emboîtement profond des deux côtés, collage à la colle PVC évacuation.',
+        'price' => 1500,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 110,
+        'tiers' => [[1, 9, 1500], [10, 49, 1320], [50, null, 1150]],
+        'photos' => [],
+    ],
+    [
+        'slug' => 'tampon-visite-pvc-100',
+        'name' => 'Tampon de visite PVC Ø100',
+        'category' => 'evacuation',
+        'description' => "Tampon de visite PVC Ø100 mm avec bouchon vissé et joint. Se pose en pied de chute et à chaque changement de direction : c'est par là qu'on passe le furet le jour où la canalisation se bouche. Poser un tampon coûte quelques milliers de francs, ne pas en poser coûte une saignée dans le mur.",
+        'price' => 2500,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 80,
+        'tiers' => [[1, 9, 2500], [10, 49, 2200], [50, null, 1950]],
+        'photos' => [],
+    ],
+
+    // ── Raccords laiton ──────────────────────────────────────────────────
+    [
+        'slug' => 'coude-laiton-90-ff',
+        'name' => 'Coude laiton 90° femelle-femelle 1/2"',
+        'category' => 'tuyauterie',
+        'description' => "Coude à 90° en laiton massif, deux sorties femelles 1/2\". Change la direction d'une alimentation filetée en sortie de mur ou avant un robinet. Laiton matricé, filets roulés propres, compatible eau chaude sanitaire. Étanchéité au téflon ou à la filasse.",
+        'price' => 1800,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 140,
+        'tiers' => [[1, 19, 1800], [20, 99, 1550], [100, null, 1300]],
+        'photos' => [],
+    ],
+    [
+        'slug' => 'union-laiton-3-pieces',
+        'name' => 'Union laiton 3 pièces 1/2"',
+        'category' => 'tuyauterie',
+        'description' => "Raccord union laiton en trois pièces, filetage 1/2\", avec écrou tournant et portée conique. Permet de déposer un appareil — compteur, vanne, chauffe-eau — sans dévisser toute la ligne. Le raccord qui fait gagner une heure à chaque intervention d'entretien.",
+        'price' => 3500,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 90,
+        'tiers' => [[1, 9, 3500], [10, 49, 3100], [50, null, 2700]],
+        'photos' => [],
+    ],
+    [
+        'slug' => 'bouchon-laiton-male',
+        'name' => 'Bouchon laiton mâle 1/2"',
+        'category' => 'tuyauterie',
+        'description' => "Bouchon mâle en laiton, filetage 1/2\", six pans pour serrage à la clé. Obture une attente d'alimentation le temps des travaux ou condamne définitivement un départ inutilisé. Laiton plein, tient la pression du réseau sans suinter.",
+        'price' => 700,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 200,
+        'tiers' => [[1, 19, 700], [20, 99, 600], [100, null, 500]],
+        'photos' => [],
+    ],
+
+    // ── Raccords compression PE ──────────────────────────────────────────
+    [
+        'slug' => 'te-compression-pe-25',
+        'name' => 'Té de compression PE Ø25',
+        'category' => 'tuyauterie',
+        'description' => 'Té égal à compression pour tube polyéthylène Ø25 mm. Même principe que le Ø32 : serrage à la main puis à la clé, sans soudure ni colle, entièrement démontable. Le diamètre courant des antennes de distribution après la nourrice. Pression de service 16 bars, contact alimentaire.',
+        'price' => 2800,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 95,
+        'tiers' => [[1, 9, 2800], [10, 49, 2480], [50, null, 2150]],
+        'photos' => [],
+    ],
+    [
+        'slug' => 'coude-compression-pe-25',
+        'name' => 'Coude de compression PE Ø25 à 90°',
+        'category' => 'tuyauterie',
+        'description' => "Coude à 90° à compression pour tube polyéthylène Ø25 mm. Corps polypropylène traité anti-UV, écrous crantés et joints toriques montés d'origine. Se démonte pour reprise du réseau, contrairement à un raccord électrosoudé. Pression de service 16 bars.",
+        'price' => 2500,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 100,
+        'tiers' => [[1, 9, 2500], [10, 49, 2200], [50, null, 1900]],
+        'photos' => [],
+    ],
+    [
+        'slug' => 'manchon-compression-pe-32',
+        'name' => 'Manchon de compression PE Ø32',
+        'category' => 'tuyauterie',
+        'description' => 'Manchon droit à compression pour tube polyéthylène Ø32 mm. Aboute deux longueurs de PE en tranchée ou répare une conduite percée sans souder. Assemblage à la main puis serrage à la clé, démontable et réutilisable. Pression de service 16 bars.',
+        'price' => 2600,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 105,
+        'tiers' => [[1, 9, 2600], [10, 49, 2300], [50, null, 2000]],
+        'photos' => [],
+    ],
+    [
+        'slug' => 'raccord-male-compression-pe-32',
+        'name' => 'Raccord mâle compression PE Ø32 x 1"',
+        'category' => 'tuyauterie',
+        'description' => "Raccord droit à compression, tube polyéthylène Ø32 mm d'un côté, filetage mâle 1\" de l'autre. Fait la transition entre le réseau PE enterré et la partie filetée : vanne d'arrêt, compteur ou nourrice. Corps polypropylène renforcé, 16 bars.",
+        'price' => 2800,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 90,
+        'tiers' => [[1, 9, 2800], [10, 49, 2480], [50, null, 2150]],
+        'photos' => [],
+    ],
+
+    // ── Flexibles & vidages ──────────────────────────────────────────────
+    [
+        'slug' => 'flexible-inox-lavabo-40cm',
+        'name' => 'Flexible inox lavabo 1/2" - 3/8" 40 cm',
+        'category' => 'flexible',
+        'description' => "Flexible de raccordement tressé inox, 40 cm, écrou tournant 1/2\" femelle côté robinet d'équerre et 3/8\" côté robinetterie. Âme caoutchouc alimentaire et tresse inox anti-torsion. La pièce à changer en premier quand un lavabo goutte sous la vasque.",
+        'price' => 1800,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 150,
+        'tiers' => [[1, 9, 1800], [10, 49, 1580], [50, null, 1350]],
+        'photos' => [],
+    ],
+    [
+        'slug' => 'flexible-inox-wc-50cm',
+        'name' => 'Flexible inox WC 1/2" - 3/8" 50 cm',
+        'category' => 'flexible',
+        'description' => "Flexible tressé inox de 50 cm pour alimentation de réservoir WC, écrous 1/2\" et 3/8\". Longueur adaptée au déport habituel entre le robinet d'arrêt et le robinet flotteur. Tresse inox résistante au frottement contre la céramique.",
+        'price' => 2000,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 140,
+        'tiers' => [[1, 9, 2000], [10, 49, 1760], [50, null, 1500]],
+        'photos' => [],
+    ],
+    [
+        'slug' => 'siphon-lavabo-pvc-reglable',
+        'name' => 'Siphon lavabo PVC réglable',
+        'category' => 'evacuation',
+        'description' => "Siphon de lavabo en PVC blanc à hauteur réglable, sortie orientable Ø32 mm. Garde d'eau bloquant les remontées d'odeurs et culot démontable pour récupérer une bague tombée dans la bonde. Joints coniques fournis, montage sans outil.",
+        'price' => 2500,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 120,
+        'tiers' => [[1, 9, 2500], [10, 49, 2200], [50, null, 1900]],
+        'photos' => [],
+    ],
+    [
+        'slug' => 'bonde-lavabo-laiton-chrome',
+        'name' => 'Bonde de lavabo laiton chromé',
+        'category' => 'sanitaire',
+        'description' => "Bonde de lavabo en laiton chromé avec grille inox et joints d'étanchéité. Se monte sur lavabo percé d'un trop-plein. Corps laiton, pas de déformation au serrage contrairement aux bondes plastique. Se raccorde sur un siphon Ø32.",
+        'price' => 2200,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 110,
+        'tiers' => [[1, 9, 2200], [10, 49, 1950], [50, null, 1700]],
+        'photos' => [],
+    ],
+    [
+        'slug' => 'vidage-evier-inox-panier',
+        'name' => 'Vidage évier inox à panier',
+        'category' => 'lavabos',
+        'description' => "Vidage complet d'évier avec panier inox amovible, bonde Ø90 et raccordement siphon. Le panier retient les déchets solides avant qu'ils ne partent dans la canalisation — la meilleure prévention contre le bouchon de cuisine. Joints fournis.",
+        'price' => 3500,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 85,
+        'tiers' => [[1, 9, 3500], [10, 49, 3100], [50, null, 2700]],
+        'photos' => [],
+    ],
+
+    // ── Appareillage électrique : interrupteurs ──────────────────────────
+    [
+        'slug' => 'interrupteur-simple-encastre',
+        'name' => 'Interrupteur simple allumage encastré blanc',
+        'category' => 'electricite',
+        'description' => "Interrupteur simple allumage encastré 10 A / 250 V, finition blanche, plaque et enjoliveur inclus. Bornes à vis acceptant du 1,5 mm² et du 2,5 mm². Se monte dans un boîtier d'encastrement standard Ø65. Le point de commande le plus courant d'une installation domestique.",
+        'price' => 1200,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 250,
+        'tiers' => [[1, 19, 1200], [20, 99, 1020], [100, null, 870]],
+        'photos' => [],
+    ],
+    [
+        'slug' => 'interrupteur-va-et-vient-encastre',
+        'name' => 'Interrupteur va-et-vient encastré blanc',
+        'category' => 'electricite',
+        'description' => "Interrupteur va-et-vient encastré 10 A / 250 V, blanc. Posé par paire, il permet de commander un même point lumineux depuis deux endroits : les deux bouts d'un couloir, le haut et le bas d'un escalier, ou l'entrée et le chevet d'une chambre. Trois bornes à vis, boîtier Ø65.",
+        'price' => 1500,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 220,
+        'tiers' => [[1, 19, 1500], [20, 99, 1300], [100, null, 1100]],
+        'photos' => [],
+    ],
+    [
+        'slug' => 'interrupteur-double-encastre',
+        'name' => 'Interrupteur double allumage encastré blanc',
+        'category' => 'electricite',
+        'description' => 'Interrupteur double allumage encastré 10 A / 250 V, deux commandes indépendantes sur un seul boîtier. Économise une saignée et un boîtier quand deux points lumineux voisins doivent être pilotés séparément — typiquement chambre et couloir, ou plafonnier et applique.',
+        'price' => 2000,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 180,
+        'tiers' => [[1, 19, 2000], [20, 99, 1750], [100, null, 1500]],
+        'photos' => [],
+    ],
+    [
+        'slug' => 'interrupteur-etanche-ip44',
+        'name' => 'Interrupteur étanche IP44 en saillie',
+        'category' => 'electricite',
+        'description' => "Interrupteur en saillie étanche IP44, 10 A / 250 V, joint périphérique et presse-étoupe. Pour les pièces humides et les extérieurs abrités : buanderie, terrasse, douche extérieure, local technique. Le degré IP44 protège des projections d'eau de toutes directions.",
+        'price' => 2500,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 120,
+        'tiers' => [[1, 9, 2500], [10, 49, 2200], [50, null, 1900]],
+        'photos' => [],
+    ],
+
+    // ── Appareillage électrique : prises ─────────────────────────────────
+    [
+        'slug' => 'prise-2p-t-encastree-16a',
+        'name' => 'Prise de courant 2P+T encastrée 16A',
+        'category' => 'electricite',
+        'description' => "Prise de courant encastrée 2P+T 16 A / 250 V avec broche de terre et éclipses de sécurité empêchant l'introduction d'un objet par un enfant. Bornes à vis pour conducteurs 2,5 mm², la section réglementaire d'un circuit prises. Boîtier d'encastrement Ø65 standard.",
+        'price' => 1800,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 240,
+        'tiers' => [[1, 19, 1800], [20, 99, 1580], [100, null, 1350]],
+        'photos' => [],
+    ],
+    [
+        'slug' => 'prise-double-2p-t-encastree',
+        'name' => 'Prise double 2P+T encastrée 16A',
+        'category' => 'electricite',
+        'description' => "Double prise 2P+T 16 A / 250 V sur un seul boîtier d'encastrement, éclipses de sécurité sur chaque alvéole. Deux points de branchement là où un seul boîtier a été prévu : bureau, plan de travail, coin télévision. Évite la multiprise en cascade.",
+        'price' => 3000,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 160,
+        'tiers' => [[1, 19, 3000], [20, 99, 2650], [100, null, 2300]],
+        'photos' => [],
+    ],
+    [
+        'slug' => 'prise-etanche-ip44-16a',
+        'name' => 'Prise étanche IP44 en saillie 16A',
+        'category' => 'electricite',
+        'description' => "Prise de courant en saillie étanche IP44, 2P+T 16 A, couvercle à clapet et joint périphérique. Pour terrasse, garage, buanderie ou chantier. Le clapet referme l'alvéole dès que la fiche est retirée, ce qui évite l'entrée de poussière et d'humidité.",
+        'price' => 3200,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 100,
+        'tiers' => [[1, 9, 3200], [10, 49, 2850], [50, null, 2500]],
+        'photos' => [],
+    ],
+    [
+        'slug' => 'rallonge-multiprise-5-sorties',
+        'name' => 'Rallonge multiprise 5 sorties 3 m',
+        'category' => 'electricite',
+        'description' => "Bloc multiprise 5 sorties 2P+T sur cordon de 3 mètres, interrupteur lumineux et protection enfant. Câble souple 3G1,5 mm². Pratique pour un poste de travail ou un meuble TV, mais à ne jamais chaîner sur une autre multiprise : c'est la première cause de surchauffe domestique.",
+        'price' => 6000,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 70,
+        'tiers' => [[1, 9, 6000], [10, 49, 5400], [50, null, 4800]],
+        'photos' => [],
+    ],
+
+    // ── Protection & tableau ─────────────────────────────────────────────
+    [
+        'slug' => 'disjoncteur-modulaire-16a',
+        'name' => 'Disjoncteur modulaire 1P+N 16A courbe C',
+        'category' => 'electricite',
+        'description' => "Disjoncteur modulaire phase + neutre 16 A, courbe C, montage sur rail DIN. Le calibre des circuits prises et des points lumineux d'une pièce. Protège la ligne contre la surcharge et le court-circuit, et se réarme d'un geste après un défaut. Pouvoir de coupure adapté au résidentiel.",
+        'price' => 3500,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 120,
+        'tiers' => [[1, 9, 3500], [10, 49, 3100], [50, null, 2700]],
+        'photos' => [],
+    ],
+    [
+        'slug' => 'disjoncteur-modulaire-20a',
+        'name' => 'Disjoncteur modulaire 1P+N 20A courbe C',
+        'category' => 'electricite',
+        'description' => 'Disjoncteur modulaire 1P+N 20 A, courbe C, rail DIN. Le calibre des circuits spécialisés de puissance moyenne : lave-linge, réfrigérateur, plan de travail cuisine. À associer à du conducteur 2,5 mm² minimum.',
+        'price' => 3800,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 110,
+        'tiers' => [[1, 9, 3800], [10, 49, 3400], [50, null, 3000]],
+        'photos' => [],
+    ],
+    [
+        'slug' => 'disjoncteur-modulaire-32a',
+        'name' => 'Disjoncteur modulaire 1P+N 32A courbe C',
+        'category' => 'electricite',
+        'description' => 'Disjoncteur modulaire 1P+N 32 A, courbe C, rail DIN. Réservé aux gros consommateurs : chauffe-eau, climatiseur, plaque de cuisson. Impose du conducteur 6 mm² — un 32 A sur du 2,5 mm² fait fondre le câble avant de déclencher.',
+        'price' => 4200,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 90,
+        'tiers' => [[1, 9, 4200], [10, 49, 3750], [50, null, 3300]],
+        'photos' => [],
+    ],
+    [
+        'slug' => 'interrupteur-differentiel-40a-30ma',
+        'name' => 'Interrupteur différentiel 2P 40A 30mA',
+        'category' => 'electricite',
+        'description' => "Interrupteur différentiel bipolaire 40 A, sensibilité 30 mA, type AC, rail DIN. Coupe le circuit dès qu'un courant de fuite traverse un corps ou part à la terre : c'est l'organe qui protège les personnes, là où le disjoncteur ne protège que le câble. La sensibilité 30 mA est celle exigée en tête des circuits de pièces d'eau.",
+        'price' => 18000,
+        'old_price' => null,
+        'badge' => 'Sécurité',
+        'stock' => 45,
+        'tiers' => [[1, 4, 18000], [5, 19, 16500], [20, null, 15000]],
+        'photos' => [],
+    ],
+    [
+        'slug' => 'peigne-alimentation-12-modules',
+        'name' => 'Peigne d’alimentation 1P 12 modules',
+        'category' => 'electricite',
+        'description' => "Peigne d'alimentation horizontal 1 pôle, 12 modules, pour distribuer la phase entre les disjoncteurs d'une même rangée. Remplace une dizaine de straps filaires : câblage plus rapide, tableau plus lisible et contact mieux serré. Se recoupe à la longueur voulue.",
+        'price' => 4500,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 60,
+        'tiers' => [[1, 9, 4500], [10, 49, 4000], [50, null, 3500]],
+        'photos' => [],
+    ],
+    [
+        'slug' => 'barrette-connexion-12-plots',
+        'name' => 'Barrette de connexion 12 plots',
+        'category' => 'electricite',
+        'description' => "Barrette de connexion (domino) 12 plots en polyamide, bornes laiton à double vis. Se recoupe au nombre de plots nécessaires. Le raccordement de base en boîte de dérivation ou en attente de luminaire. Section acceptée jusqu'à 4 mm².",
+        'price' => 800,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 300,
+        'tiers' => [[1, 19, 800], [20, 99, 690], [100, null, 580]],
+        'photos' => [],
+    ],
+    [
+        'slug' => 'connecteur-rapide-3-entrees-sachet',
+        'name' => 'Connecteurs rapides 3 entrées (sachet de 10)',
+        'category' => 'electricite',
+        'description' => "Sachet de 10 connecteurs automatiques à levier, 3 entrées, pour conducteurs rigides et souples de 0,5 à 4 mm². On dénude, on clipse, c'est connecté — et ça se rouvre sans abîmer le fil, contrairement au domino qui marque le cuivre. Gain de temps net en boîte de dérivation.",
+        'price' => 2500,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 120,
+        'tiers' => [[1, 9, 2500], [10, 49, 2200], [50, null, 1900]],
+        'photos' => [],
+    ],
+
+    // ── Câbles & éclairage ───────────────────────────────────────────────
+    [
+        'slug' => 'cable-souple-h05vvf-3g25-100m',
+        'name' => 'Câble souple H05VV-F 3G2,5 couronne 100 m',
+        'category' => 'electricite',
+        'description' => 'Câble souple H05VV-F trois conducteurs 2,5 mm² (phase, neutre, terre), gaine PVC, couronne de 100 mètres. Utilisé en alimentation mobile ou apparente : machine à laver, pompe, coffret de chantier. Sa souplesse le distingue du fil rigide, qui reste réservé aux saignées et aux gaines.',
+        'price' => 45000,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 14,
+        'tiers' => [[1, 4, 45000], [5, 19, 42000], [20, null, 39000]],
+        'photos' => [],
+    ],
+    [
+        'slug' => 'douille-e27-porcelaine',
+        'name' => 'Douille E27 en porcelaine',
+        'category' => 'eclairage',
+        'description' => "Douille E27 en porcelaine avec bornes laiton. La porcelaine encaisse la chaleur bien mieux que le plastique : c'est la douille à choisir pour une ampoule puissante ou un point lumineux confiné. Culot E27, le standard des ampoules du commerce.",
+        'price' => 700,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 260,
+        'tiers' => [[1, 19, 700], [20, 99, 600], [100, null, 500]],
+        'photos' => [],
+    ],
+    [
+        'slug' => 'ampoule-led-e27-12w',
+        'name' => 'Ampoule LED E27 12 W',
+        'category' => 'eclairage',
+        'description' => 'Ampoule LED culot E27, 12 W pour environ 1100 lumens, lumière du jour 6500 K. Remplace une incandescence de 100 W en consommant huit fois moins, sans temps de chauffe. Durée de vie annoncée autour de 25 000 heures. Le format standard de tout luminaire domestique.',
+        'price' => 1500,
+        'old_price' => null,
+        'badge' => 'Économie d’énergie',
+        'stock' => 200,
+        'tiers' => [[1, 19, 1500], [20, 99, 1300], [100, null, 1100]],
+        'photos' => [],
+    ],
+    [
+        'slug' => 'reglette-led-36w-120cm',
+        'name' => 'Réglette LED 36 W 1,20 m',
+        'category' => 'eclairage',
+        'description' => "Réglette LED complète 36 W, longueur 1,20 m, lumière du jour 6500 K, environ 3200 lumens. Corps aluminium et diffuseur opale, driver intégré, fixations et connectique fournies. L'éclairage courant des ateliers, garages, boutiques et couloirs — se pose en remplacement direct d'un tube fluorescent.",
+        'price' => 6500,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 80,
+        'tiers' => [[1, 9, 6500], [10, 49, 5850], [50, null, 5200]],
+        'photos' => [],
+    ],
+    [
+        'slug' => 'sonnette-porte-filaire',
+        'name' => 'Sonnette de porte filaire avec bouton',
+        'category' => 'electricite',
+        'description' => 'Carillon filaire 220 V livré avec son bouton-poussoir en applique. Deux tons, volume fixe, montage mural par deux vis. Installation simple : deux fils entre le bouton et le carillon, aucune pile à remplacer contrairement aux modèles sans fil.',
+        'price' => 3500,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 65,
+        'tiers' => [[1, 9, 3500], [10, 49, 3100], [50, null, 2700]],
+        'photos' => [],
+    ],
+
+    // ── Filtration ───────────────────────────────────────────────────────
+    [
+        'slug' => 'porte-filtre-simple-10-pouces-kit',
+        'name' => 'Porte-filtre simple 10" avec équerre murale',
+        'category' => 'filtration',
+        'description' => "Porte-filtre simple étage 10 pouces, entrées 3/4\" et 1\", livré en boîte avec son équerre de fixation murale et sa clé de démontage. Cuve transparente pour juger de l'encrassement d'un coup d'œil. Se pose en tête d'installation domestique, avant le ballon d'eau chaude.",
+        'price' => 13500,
+        'old_price' => null,
+        'badge' => null,
+        'stock' => 24,
+        'tiers' => [[1, 9, 13500], [10, 49, 12200], [50, null, 10800]],
+        'photos' => ['porte-filtre-simple-10-pouces-1.jpg'],
     ],
 ];
